@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login</title>
     <link rel="stylesheet" href="<?= base_url('assets/template/plugins/'); ?>/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= base_url('assets/template/plugins/'); ?>/fontawesome-free/css/fontawesome.min.css">
+    <link rel="stylesheet" href="<?php echo base_url('assets/template/plugins'); ?>/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="<?= base_url('assets/template/plugins/'); ?>/sweetalert2/sweetalert2.css">
 
     <style>
@@ -72,11 +72,6 @@
             width: 100%;
         }
 
-        .login-form input[type="checkbox"] {
-            position: relative;
-            top: 1px;
-        }
-
         .login-form .btn,
         .login-form .btn:active {
             font-size: 16px;
@@ -117,11 +112,11 @@
 
 <body>
     <div class="login-form">
-        <?= form_open('auth/cek_login') ?>
+        <?= form_open('auth/cekuser', ['class' => 'formlogin']) ?>
         <div class="avatar">
-            <li style="font-size:63px;color:white;margin-left:10px" class="fa fa-user text-center"></li>
+            <li style="font-size:63px;color:white;margin-left:6px" class="fa fa-user text-center"></li>
         </div>
-        <h2 class="text-center">Member Login</h2>
+        <h2 class="text-center">Login</h2>
         <div class="form-group">
             <?php if (!empty(session()->getFlashdata('gagal'))) { ?>
                 <div class="alert alert-warning">
@@ -130,13 +125,17 @@
             <?php } ?>
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" name="username" placeholder="Username" required>
+            <input type="text" class="form-control" name="username" id="username" placeholder="Username" autofocus>
+            <div class="invalid-feedback errorUserID">
+            </div>
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" required>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+            <div class="invalid-feedback errorPassword">
+            </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block btnlogin">Login</button>
         </div>
         <div class="bottom-action clearfix">
             <a href="#" class="float-right">Forgot Password?</a>
