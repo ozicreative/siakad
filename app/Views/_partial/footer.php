@@ -26,7 +26,7 @@
 <script src="<?php echo base_url('assets/template/plugins'); ?>/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script>
     $(function() {
-        $("#example1").DataTable({});
+        $("#table1").DataTable({});
     });
 </script>
 <!-- Alert -->
