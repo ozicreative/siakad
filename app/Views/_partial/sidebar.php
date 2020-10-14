@@ -31,31 +31,31 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?php echo base_url('guru'); ?>" class="nav-link">
                 <i class="fas fa-bookmark nav-icon"></i>
                 <p>Guru</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?php echo base_url('siswa'); ?>" class="nav-link">
                 <i class="fas fa-bookmark nav-icon"></i>
                 <p>Siswa</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?php echo base_url('kelas'); ?>" class="nav-link">
                 <i class="fas fa-bookmark nav-icon"></i>
                 <p>Kelas</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?php echo base_url('pelajaran'); ?>" class="nav-link">
                 <i class="fas fa-bookmark nav-icon"></i>
                 <p>Pelajaran</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?php echo base_url('jadwal'); ?>" class="nav-link">
                 <i class="fas fa-bookmark nav-icon"></i>
                 <p>Jadwal</p>
               </a>
