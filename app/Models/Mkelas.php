@@ -17,8 +17,7 @@ class Mkelas extends Model
 
     public function tambah($data)
     {
-        $tambah = $this->db->table($this->table)->insert($data);
-        return $tambah;
+        $this->db->table('kelas')->insert($data);
     }
 
     public function ubah($data)

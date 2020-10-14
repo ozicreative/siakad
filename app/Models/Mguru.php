@@ -17,8 +17,7 @@ class Mguru extends Model
 
     public function tambah($data)
     {
-        $tambah = $this->db->table($this->table)->insert($data);
-        return $tambah;
+        $this->db->table('guru')->insert($data);
     }
 
     public function ubah($data)
