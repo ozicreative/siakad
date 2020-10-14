@@ -31,9 +31,9 @@ class Kelas extends BaseController
             'active' => $this->request->getPost('active'),
         );
         $this->Mkelas->tambah($data);
+        session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
         return redirect()->to(base_url('kelas'));
     }
-
     public function edit($id)
     {
         $data = array(
@@ -43,6 +43,7 @@ class Kelas extends BaseController
             'active' => $this->request->getPost('active'),
         );
         $this->Mkelas->ubah($data);
+        session()->setFlashdata('pesan', 'Data berhasil diubah.');
         return redirect()->to(base_url('kelas'));
     }
 

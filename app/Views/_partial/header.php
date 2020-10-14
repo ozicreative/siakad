@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>SIP Online</title>
+    <title><?= $title ?></title>
     <style type="text/css" id="debugbar_dynamic_style"></style>
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url('assets/template'); ?>/css/adminlte.min.css">

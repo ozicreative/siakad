@@ -7,6 +7,15 @@
                 </div>
             </div>
             <div class="card-body">
+
+            <?php
+                if (session()->getFlashdata('pesan')) {
+                    echo '<div class="alert alert-success alert-dismissible">';
+                    echo session()->getFlashdata('pesan');
+                    echo '</div>';
+                }
+                ?>
+
                 <table class="table table-bordered" id="table1">
                     <thead>
                         <tr>
@@ -59,7 +68,7 @@
                 </div>
                 <div class="form-group">
                     <label>Status</label>
-                    <input name="active" class="form-control" required>
+                    <input name="active" class="form-control">
                 </div>
             </div>
             <div class="modal-footer">
