@@ -52,7 +52,7 @@
 </div>
 <!-- /.modal Add-->
 <div class="modal fade" id="add">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Buat Jadwal</h4>
@@ -62,43 +62,24 @@
                 echo form_open('kelas/add')
                 ?>
 
-                <div class="row">
-                    <div class="col-6 form-group">
+                <div class="form-group row">
+                    <div class="form-group col-lg-6">
                         <label>Kelas</label>
-                        <select name="lvl_kelas" id="lvl_kelas" class="form-control" required>
-                            <option value="X">X</option>
-                            <option value="XI">XI</option>
-                            <option value="XII">XII</option>
+                        <select name="kelas_id" class="form-control">
+                            <option value="kelas_id"><?= $value['lvl_kelas'] ?> - <?= $value['nama_kelas'] ?></option>
                         </select>
                     </div>
-                    <div class="col-6 form-group">
-                        <label>Jurusan</label>
-                        <select name="nama_kelas" id="nama_kelas" class="form-control" required>
-                            <option value="Tehnik Informasi">Tehnik Informasi</option>
-                            <option value="Tehnik Komputer">Tehnik Komputer</option>
-                            <option value="Tehnik Mesin">Tehnik Mesin</option>
-                        </select>
-                    </div>
-                    <!-- <div class="col-6 form-group">
-                        <label>Kelas</label>
-                        <select name="lvl_kelas" id="lvl_kelas" class="form-control" required>
-                            <option value="X">X</option>
-                            <option value="XI">XI</option>
-                            <option value="XII">XII</option>
-                        </select>
-                    </div> -->
-                </div>
-                <div class="row">
-                    <div class="col-6 form-group">
-                    <label>Pelajaran</label>
-                        <select name="pelajaran_id" id="pelajaran_id" class="form-control" required>
-                            <option>- pilih mapel -</option>
-                            <?php foreach ($pelajaran as $key => $value) { ?>
-                                <option value="<?= $value['id_pelajaran'] ?>"><?= $value['nama_pelajaran'] ?></option>
+                    <!-- <div class="form-group col-lg-2">
+                        <label>Kelas</label> -->
+
+                        <!-- <select name="kelas_id" id="kelas_id" class="form-control">
+                            <option>- pilih kelas -</option>
+                            <?php foreach ($kelas as $key => $value) { ?>
+                                <option value="<?= $value['id_kelas'] ?>"><?= $value['lvl_kelas'] ?> - <?= $value['nama_kelas'] ?></option>
                             <?php } ?>
-                        </select>
-                    </div>
-                    <div class="col-6 form-group">
+                        </select> -->
+                    <!-- </div> -->
+                    <div class="form-group col-lg-6">
                         <label>Hari</label>
                         <select name="hari" id="hari" class="form-control" required>
                             <option value="Senin">Senin</option>
@@ -109,18 +90,29 @@
                             <option value="Sabtu">Sabtu</option>
                         </select>
                     </div>
-                    <div class="col-6 form-group">
+                </div>
+                <div class="form-group row">
+                    <div class="form-group col-md-6">
+                        <label>Pelajaran</label>
+                        <select name="pelajaran_id" id="pelajaran_id" class="form-control" required>
+                            <option>- pilih mapel -</option>
+                            <?php foreach ($pelajaran as $key => $value) { ?>
+                                <option value="<?= $value['id_pelajaran'] ?>"><?= $value['nama_pelajaran'] ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-3">
                         <label>Start</label>
                         <input type="time" name="mulai" class="form-control">
-                        <!-- <select name="mulai" id="mulai" class="form-control" required>
-                            <option value="Tehnik Informasi">Tehnik Informasi</option>
-                            <option value="Tehnik Komputer">Tehnik Komputer</option>
-                            <option value="Tehnik Mesin">Tehnik Mesin</option>
-                        </select> -->
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>End</label>
+                        <input type="time" name="selesai" class="form-control">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-6 form-group">
+                <div class="form-group row">
+                    <div class="form-group col-md-6">
                         <label>Guru</label>
                         <select name="guru_id" id="guru_id" class="form-control" required>
                             <option>- pilih guru -</option>
@@ -129,17 +121,6 @@
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="col-6 form-group">
-                        <label>End</label>
-                        <input type="time" name="selesai" class="form-control">
-                    </div>
-                    <!-- <div class="form-group">
-                    <label>Status</label>
-                    <select name="active" id="active" class="form-control" required>
-                        <option value="1">Aktif</option>
-                        <option value="2">Nonaktif</option>
-                    </select>
-                </div> -->
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-info">Simpan</button>

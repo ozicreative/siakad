@@ -25,15 +25,15 @@ class Mjadwal extends Model
 
     public function ubah($data)
     {
-        $this->db->table('kelas')
-            ->where('id_kelas', $data['id_kelas'])
+        $this->db->table('jadwak')
+            ->where('id_jadwal', $data['id_jadwal'])
             ->update($data);
     }
 
     public function hapus($data)
     {
-        $this->db->table('kelas')
-            ->where('id_kelas', $data['id_kelas'])
+        $this->db->table('jadwal')
+            ->where('id_jadwal', $data['id_jadwal'])
             ->delete($data);
     }
 }

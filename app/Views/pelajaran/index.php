@@ -32,7 +32,7 @@
                             <tr>
                                 <td><?= $no++;  ?></td>
                                 <td><?= $value['nama_pelajaran'];  ?></td>
-                                <td><?= $value['kelas_id'];  ?></td>
+                                <td><?= $value['lvl_kls'];  ?></td>
                                 <td><?= $value['nama_active'];  ?></td>
                                 <td>
                                     <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit<?= $value['id_pelajaran']; ?>"><i class="fas fa-edit"></i> Edit</button>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="form-group">
                     <label>Kelas</label>
-                    <select name="kelas_id" id="kelas_id" class="form-control" required>
+                    <select name="lvl_kls" id="lvl_kls" class="form-control" required>
                         <option value="X">X</option>
                         <option value="XI">XI</option>
                         <option value="XII">XII</option>
@@ -108,8 +108,8 @@
                     </div>
                     <div class="form-group">
                         <label>Kelas</label>
-                        <select name="kelas_id" id="kelas_id" class="form-control">
-                            <option><?= $value['kelas_id']; ?></option>
+                        <select name="lvl_kls" id="lvl_kls" class="form-control">
+                            <option><?= $value['lvl_kls']; ?></option>
                             <option value="X">X</option>
                             <option value="XI">XI</option>
                             <option value="XII">XII</option>
