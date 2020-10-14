@@ -8,7 +8,7 @@
             </div>
             <div class="card-body">
 
-            <?php
+                <?php
                 if (session()->getFlashdata('pesan')) {
                     echo '<div class="alert alert-success alert-dismissible">';
                     echo session()->getFlashdata('pesan');
@@ -60,15 +60,22 @@
 
                 <div class="form-group">
                     <label>Pelajaran</label>
-                    <input name="nama_kelas" class="form-control" required>
+                    <input name="nama_pelajaran" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label>Kelas</label>
-                    <input name="kelas_id" class="form-control" required>
+                    <select name="kelas_id" id="kelas_id" class="form-control" required>
+                        <option value="X">X</option>
+                        <option value="XI">XI</option>
+                        <option value="XII">XII</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Status</label>
-                    <input name="active" class="form-control">
+                    <select name="active" id="active" class="form-control" required>
+                        <option value="1">Aktif</option>
+                        <option value="2">Nonaktif</option>
+                    </select>
                 </div>
             </div>
             <div class="modal-footer">
@@ -101,11 +108,20 @@
                     </div>
                     <div class="form-group">
                         <label>Kelas</label>
-                        <input name="kelas_id" value="<?= $value['kelas_id']; ?>" class="form-control">
+                        <select name="kelas_id" id="kelas_id" class="form-control">
+                            <option><?= $value['kelas_id']; ?></option>
+                            <option value="X">X</option>
+                            <option value="XI">XI</option>
+                            <option value="XII">XII</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Status</label>
-                        <input name="active" value="<?= $value['active']; ?>" class="form-control">
+                        <select name="active" class="form-control">
+                        <option value="<?= $value['active']?>"><?= $value['nama_active']?></option>
+                        <option value="1">Aktif</option>
+                        <option value="2">Nonaktif</option>
+                    </select>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -54,7 +54,10 @@
                 </div>
                 <div class="form-group">
                     <label>Status</label>
-                    <input name="active" class="form-control" required>
+                    <select name="active" id="active" class="form-control" required>
+                        <option value="1">Aktif</option>
+                        <option value="2">Nonaktif</option>
+                    </select>
                 </div>
             </div>
             <div class="modal-footer">
@@ -83,11 +86,15 @@
 
                     <div class="form-group">
                         <label>Nama</label>
-                        <input name="nama" value="<?= $value['nama_guru']; ?>" class="form-control">
+                        <input name="nama_guru" value="<?= $value['nama_guru']; ?>" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Status</label>
-                        <input name="active" value="<?= $value['active']; ?>" class="form-control">
+                        <select name="active" id="active" class="form-control" required>
+                            <option value=""><?= $value['nama_active']; ?></option>
+                            <option value="1">Aktif</option>
+                            <option value="2">Nonaktif</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
