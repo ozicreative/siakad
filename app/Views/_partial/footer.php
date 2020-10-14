@@ -13,6 +13,8 @@
 </footer>
 </div>
 
+<!-- Sweet Alert2 -->
+<script src="<?php echo base_url('assets/template/plugins'); ?>/sweetalert2/sweetalert2.js"></script>
 <!-- jQuery -->
 <script src="<?php echo base_url('assets/template/plugins'); ?>/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
@@ -33,10 +35,48 @@
 <script>
     window.setTimeout(function() {
         $('.alert').fadeTo(500, 0).slideUp(500, function() {
-            $(this).remove();
+            $(this).btnhapus();
         });
     }, 10000);
 </script>
+
+<!-- SweetAlert -->
+<script type="text/javascript">
+    $(".btnhapus").click(function() {
+        var id = $(this).parents("tr").attr("id");
+
+        swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this imaginary file!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel plx!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function(isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        url: '/item-list/' + id,
+                        type: 'DELETE',
+                        error: function() {
+                            alert('Something is wrong');
+                        },
+                        success: function(data) {
+                            $("#" + id).btnhapus();
+                            swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                        }
+                    });
+                } else {
+                    swal("Cancelled", "Your imaginary file is safe :)", "error");
+                }
+            });
+
+    });
+</script>
+<!-- .Sweet Alert -->
 </body>
 
 </html>

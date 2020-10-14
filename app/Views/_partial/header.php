@@ -8,6 +8,8 @@
     <style type="text/css" id="debugbar_dynamic_style"></style>
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url('assets/template'); ?>/css/adminlte.min.css">
+    <!-- Sweet Alert2 -->
+    <link rel="stylesheet" href="<?php echo base_url('assets/template/plugins'); ?>/sweetalert2/sweetalert2.css" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo base_url('assets/template/plugins'); ?>/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->

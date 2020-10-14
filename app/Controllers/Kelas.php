@@ -52,6 +52,7 @@ class Kelas extends BaseController
             'id_kelas' => $id,
         );
         $this->Mkelas->hapus($data);
+        echo 'Data berhasil dihapus.';
         return redirect()->to(base_url('kelas'));
     }
 }
