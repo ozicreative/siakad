@@ -18,6 +18,12 @@ class Mjadwal extends Model
         ->getResultArray();
     }
 
+    public function getKelas()
+    {
+        $builder = $this->db->query("SELECT t1.id_kelas, concat(t1.lvl_kelas,' - ',t1.`nama_kelas`) nama_kelas FROM kelas t1 WHERE t1.active='1' ORDER BY t1.`nama_kelas`");
+        return $builder->getResultArray();
+    }
+
     public function tambah($data)
     {
         $this->db->table('jadwal')->insert($data);

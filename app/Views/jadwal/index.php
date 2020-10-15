@@ -39,8 +39,8 @@
                                 <td><?= $value['nama_pelajaran']; ?></td>
                                 <td><?= $value['nama_guru']; ?></td>
                                 <td>
-                                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit<?= $value['id_kelas']; ?>"><i class="fas fa-edit"></i> Edit</button>
-                                    <button class="btn btn-danger btn-sm btnhapus" data-toggle="modal" data-target="#delete<?= $value['id_kelas']; ?>"><i class="fas fa-trash-alt"></i> Hapus</button>
+                                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit<?= $value['id_jadwal']; ?>"><i class="fas fa-edit"></i> Edit</button>
+                                    <button class="btn btn-danger btn-sm btnhapus" data-toggle="modal" data-target="#delete<?= $value['id_jadwal']; ?>"><i class="fas fa-trash-alt"></i> Hapus</button>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -59,16 +59,15 @@
             </div>
             <div class="modal-body">
                 <?php
-                echo form_open('kelas/add')
+                echo form_open('jadwal/add')
                 ?>
-
                 <div class="form-group row">
                     <div class="form-group col-lg-6">
                         <label>Kelas</label>
                         <select name="kelas_id" id="kelas_id" class="form-control">
                             <option>- pilih kelas -</option>
                             <?php foreach ($kelas as $key => $value) { ?>
-                                <option value="<?= $value['id_kelas'] ?>"><?= $value['lvl_kelas'] ?> - <?= $value['nama_kelas'] ?></option>
+                                <option value="<?= $value['id_kelas'] ?>"><?= $value['nama_kelas'] ?></option>
                             <?php } ?>
                         </select>
                     </div>
@@ -86,7 +85,7 @@
                 </div>
                 <div class="form-group row">
                     <div class="form-group col-md-6">
-                    <label>Pelajaran</label>
+                        <label>Pelajaran</label>
                         <select name="pelajaran_id" id="pelajaran_id" class="form-control" required>
                             <option>- pilih mapel -</option>
                             <?php foreach ($pelajaran as $key => $value) { ?>
@@ -94,7 +93,7 @@
                             <?php } ?>
                         </select>
                     </div>
-                    
+
                     <div class="form-group col-md-3">
                         <label>Start</label>
                         <input type="time" name="mulai" class="form-control">
@@ -114,6 +113,15 @@
                             <?php } ?>
                         </select>
                     </div>
+                    <div class="form-group col-md-6">
+                    <label>Status</label>
+                    <select name="active" id="active" class="form-control" required>
+                        <option>- status -</option>
+                        <?php foreach ($tbl_active as $key => $value) { ?>
+                            <option value="<?= $value['id_active'] ?>"><?= $value['nama_active'] ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-info">Simpan</button>
