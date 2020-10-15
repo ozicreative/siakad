@@ -1,12 +1,21 @@
 <div class="row">
     <div class="col-md-12">
-        <div class="card card-info">
+        <div class="card card-info card-outline">
             <div class="card-header">
                 <div class="card-tools float-right">
-                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#add"><i class="fa fa-plus"></i> <b>New Data</b></button>
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#add"><i class="fa fa-plus"></i> <b>New Data</b></button>
                 </div>
             </div>
             <div class="card-body">
+                <div class="col-sm">
+                    <?php
+                    if (session()->getFlashdata('pesan')) {
+                        echo '<div class="alert alert-success alert-dismissible">';
+                        echo session()->getFlashdata('pesan');
+                        echo '</div>';
+                    }
+                    ?>
+                </div>
                 <table class="table table-bordered" id="table1">
                     <thead>
                         <tr>
@@ -104,16 +113,33 @@
                     echo form_open('guru/edit/' . $value['id_guru'])
                     ?>
 
-                    <div class="form-group">
-                        <label>Nama</label>
-                        <input name="nama_guru" value="<?= $value['nama_guru']; ?>" class="form-control" required>
+                    <div class="form-group row">
+                        <div class="form-group col-lg-6">
+                            <label>NUPTK</label>
+                            <input name="nuptk" value="<?= $value['nuptk']; ?>" class="form-control" readonly>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>Nama Guru</label>
+                            <input type="text" name="nama_guru" value="<?= $value['nama_guru']; ?>" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group col-lg-6">
+                            <label>Kelahiran</label>
+                            <input type="text" name="kelahiran" value="<?= $value['kelahiran']; ?>" class="form-control" required>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>Tgl Lahir</label>
+                            <input type="date" name="tgl_lhr" value="<?= $value['tgl_lhr']; ?>" class="form-control" required>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Status</label>
-                        <select name="active" id="active" class="form-control" required>
-                            <option value=""><?= $value['nama_active']; ?></option>
-                            <option value="1">Aktif</option>
-                            <option value="2">Nonaktif</option>
+                        <select name="active" value="<?= $value['nama_active']; ?>" class="form-control" required>
+                            <option>- status -</option>
+                            <?php foreach ($tbl_active as $key => $value) { ?>
+                                <option value="<?= $value['id_active'] ?>"><?= $value['nama_active'] ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>

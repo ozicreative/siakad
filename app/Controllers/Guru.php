@@ -36,6 +36,7 @@ class Guru extends BaseController
             'active' => $this->request->getPost('active'),
         );
         $this->Mguru->tambah($data);
+        session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
         return redirect()->to(base_url('guru'));
     }
 
@@ -50,6 +51,7 @@ class Guru extends BaseController
             'active' => $this->request->getPost('active'),
         );
         $this->Mguru->ubah($data);
+        session()->setFlashdata('pesan', 'Data berhasil dirubah.');
         return redirect()->to(base_url('guru'));
     }
 
@@ -59,6 +61,7 @@ class Guru extends BaseController
             'id_guru' => $id,
         );
         $this->Mguru->hapus($data);
+        session()->setFlashdata('pesan', 'Data berhasil dihapus.');
         return redirect()->to(base_url('guru'));
     }
 }
