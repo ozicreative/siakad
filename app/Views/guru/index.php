@@ -7,15 +7,11 @@
                 </div>
             </div>
             <div class="card-body">
-                <div class="col-sm">
-                    <?php
-                    if (session()->getFlashdata('pesan')) {
-                        echo '<div class="alert alert-success alert-dismissible">';
-                        echo session()->getFlashdata('pesan');
-                        echo '</div>';
-                    }
-                    ?>
-                </div>
+                <?php if (session()->getFlashdata('pesan')) {
+                    echo '<div class="alert alert-info alert-dismissible">';
+                    echo session()->getFlashdata('pesan');
+                    echo '</div>';
+                } ?>
                 <table class="table table-bordered" id="table1">
                     <thead>
                         <tr>
