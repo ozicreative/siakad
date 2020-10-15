@@ -11,6 +11,7 @@
                     <thead>
                         <tr>
                             <th width="30px">No</th>
+                            <th>NUPTK</th>
                             <th>Nama</th>
                             <th>Status</th>
                             <th width="22%">Aksi</th>
@@ -21,6 +22,7 @@
                         foreach ($guru as $key => $value) { ?>
                             <tr>
                                 <td><?= $no++;  ?></td>
+                                <td><?= $value['nuptk'];  ?></td>
                                 <td><?= $value['nama_guru'];  ?></td>
                                 <td><?= $value['nama_active'];  ?></td>
                                 <td>
@@ -38,7 +40,7 @@
 </div>
 <!-- /.modal Add-->
 <div class="modal fade" id="add">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Tambah Guru</h4>
@@ -48,15 +50,33 @@
                 echo form_open('guru/add')
                 ?>
 
-                <div class="form-group">
-                    <label>Nama Guru</label>
-                    <input name="nama_guru" class="form-control" required>
+                <div class="form-group row">
+                    <div class="form-group col-lg-6">
+                        <label>NUPTK</label>
+                        <input name="nuptk" class="form-control" required>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label>Nama Guru</label>
+                        <input name="nama_guru" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="form-group col-lg-6">
+                        <label>Kelahiran</label>
+                        <input name="kelahiran" class="form-control" required>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label>Tgl Lahir</label>
+                        <input type="date" name="tgl_lhr" class="form-control" required>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Status</label>
                     <select name="active" id="active" class="form-control" required>
-                        <option value="1">Aktif</option>
-                        <option value="2">Nonaktif</option>
+                        <option>- status -</option>
+                        <?php foreach ($tbl_active as $key => $value) { ?>
+                            <option value="<?= $value['id_active'] ?>"><?= $value['nama_active'] ?></option>
+                        <?php } ?>
                     </select>
                 </div>
             </div>

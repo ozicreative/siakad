@@ -65,20 +65,13 @@
                 <div class="form-group row">
                     <div class="form-group col-lg-6">
                         <label>Kelas</label>
-                        <select name="kelas_id" class="form-control">
-                            <option value="kelas_id"><?= $value['lvl_kelas'] ?> - <?= $value['nama_kelas'] ?></option>
-                        </select>
-                    </div>
-                    <!-- <div class="form-group col-lg-2">
-                        <label>Kelas</label> -->
-
-                        <!-- <select name="kelas_id" id="kelas_id" class="form-control">
+                        <select name="kelas_id" id="kelas_id" class="form-control">
                             <option>- pilih kelas -</option>
                             <?php foreach ($kelas as $key => $value) { ?>
                                 <option value="<?= $value['id_kelas'] ?>"><?= $value['lvl_kelas'] ?> - <?= $value['nama_kelas'] ?></option>
                             <?php } ?>
-                        </select> -->
-                    <!-- </div> -->
+                        </select>
+                    </div>
                     <div class="form-group col-lg-6">
                         <label>Hari</label>
                         <select name="hari" id="hari" class="form-control" required>
@@ -93,7 +86,7 @@
                 </div>
                 <div class="form-group row">
                     <div class="form-group col-md-6">
-                        <label>Pelajaran</label>
+                    <label>Pelajaran</label>
                         <select name="pelajaran_id" id="pelajaran_id" class="form-control" required>
                             <option>- pilih mapel -</option>
                             <?php foreach ($pelajaran as $key => $value) { ?>
@@ -101,7 +94,7 @@
                             <?php } ?>
                         </select>
                     </div>
-
+                    
                     <div class="form-group col-md-3">
                         <label>Start</label>
                         <input type="time" name="mulai" class="form-control">

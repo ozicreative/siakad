@@ -25,7 +25,7 @@ class Mjadwal extends Model
 
     public function ubah($data)
     {
-        $this->db->table('jadwak')
+        $this->db->table('jadwal')
             ->where('id_jadwal', $data['id_jadwal'])
             ->update($data);
     }
