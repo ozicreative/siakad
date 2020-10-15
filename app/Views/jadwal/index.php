@@ -136,15 +136,15 @@
 
 <!-- /.modal Edit-->
 <?php foreach ($jadwal as $key => $value) { ?>
-    <div class="modal fade" id="edit<?= $value['id_kelas']; ?>">
+    <div class="modal fade" id="edit<?= $value['id_jadwal']; ?>">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Ubah Kelas</h4>
+                    <h4 class="modal-title">Ubah Jadwal</h4>
                 </div>
                 <div class="modal-body">
                     <?php
-                    echo form_open('kelas/edit/' . $value['id_kelas'])
+                    echo form_open('jadwal/edit/' . $value['id_jadwal'])
                     ?>
 
                     <div class="form-group">
