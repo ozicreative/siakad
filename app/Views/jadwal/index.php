@@ -152,7 +152,7 @@
                     <div class="form-group col-lg-6">
                         <label>Kelas</label>
                         <select name="kelas_id" id="kelas_id" class="form-control" required>
-                            <option></option>
+                            <option><?= $value['lvl_kelas'] ?> - <?= $value['nama_kelas'] ?></option>
                             <?php foreach ($kelas as $key => $value) { ?>
                                 <option value="<?= $value['id_kelas'] ?>"><?= $value['nama_kelas'] ?></option>
                             <?php } ?>

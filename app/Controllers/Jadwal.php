@@ -48,26 +48,29 @@ class Jadwal extends BaseController
         session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
         return redirect()->to(base_url('jadwal'));
     }
-    // public function edit($id)
-    // {
-    //     $data = array(
-    //         'id_kelas' => $id,
-    //         'nama_kelas' => $this->request->getPost('nama_kelas'),
-    //         'lvl_kelas' => $this->request->getPost('lvl_kelas'),
-    //         'active' => $this->request->getPost('active'),
-    //     );
-    //     $this->Mjadwal->ubah($data);
-    //     session()->setFlashdata('pesan', 'Data berhasil diubah.');
-    //     return redirect()->to(base_url('jadwal'));
-    // }
+    public function edit($id)
+    {
+        $data = array(
+            'kelas_id' => $id,
+            'pelajaran_id' => $this->request->getPost('pelajaran_id'),
+            'guru_id' => $this->request->getPost('guru_id'),
+            'hari' => $this->request->getPost('hari'),
+            'mulai' => $this->request->getPost('mulai'),
+            'selesai' => $this->request->getPost('selesai'),
+            'active' => $this->request->getPost('active'),
+        );
+        $this->Mjadwal->ubah($data);
+        session()->setFlashdata('pesan', 'Data berhasil diubah.');
+        return redirect()->to(base_url('jadwal'));
+    }
 
-    // public function delete($id)
-    // {
-    //     $data = array(
-    //         'id_kelas' => $id,
-    //     );
-    //     $this->Mjadwal->hapus($data);
-    //     session()->setFlashdata('pesan', 'Data berhasil dihapus.');
-    //     return redirect()->to(base_url('jadwal'));
-    // }
+    public function delete($id)
+    {
+        $data = array(
+            'id_kelas' => $id,
+        );
+        $this->Mjadwal->hapus($data);
+        session()->setFlashdata('pesan', 'Data berhasil dihapus.');
+        return redirect()->to(base_url('jadwal'));
+    }
 }

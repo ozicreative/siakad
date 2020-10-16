@@ -50,7 +50,7 @@ class Guru extends BaseController
             'tgl_lhr' => $this->request->getPost('tgl_lhr'),
             'active' => $this->request->getPost('active'),
         );
-        $this->Mguru->ubah($data);
+        $this->Mguru->ubah($data, $id);
         session()->setFlashdata('pesan', 'Data berhasil dirubah.');
         return redirect()->to(base_url('guru'));
     }

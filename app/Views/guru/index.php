@@ -32,7 +32,7 @@
                                 <td><?= $value['nama_active'];  ?></td>
                                 <td>
                                     <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit<?= $value['id_guru']; ?>"><i class="fas fa-eye"></i> View</button>
-                                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit<?= $value['id_guru']; ?>"><i class="fas fa-edit"></i> Edit</button>
+                                    <button class="btn btn-warning btn-sm btn-edit" data-toggle="modal" data-target="#edit<?= $value['id_guru']; ?>"><i class="fas fa-edit"></i> Edit</button>
                                     <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value['id_guru']; ?>"><i class="fas fa-trash-alt"></i> Hapus</button>
                                 </td>
                             </tr>
@@ -99,7 +99,7 @@
 <!-- /.modal Edit-->
 <?php foreach ($guru as $key => $value) { ?>
     <div class="modal fade" id="edit<?= $value['id_guru']; ?>">
-        <div class="modal-dialog">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Ubah Guru</h4>
@@ -131,11 +131,9 @@
                     </div>
                     <div class="form-group">
                         <label>Status</label>
-                        <select name="active" value="<?= $value['nama_active']; ?>" class="form-control" required>
-                            <option>- status -</option>
-                            <?php foreach ($tbl_active as $key => $value) { ?>
-                                <option value="<?= $value['id_active'] ?>"><?= $value['nama_active'] ?></option>
-                            <?php } ?>
+                        <select name="active" class="form-control" required>
+                            <option value="1" <?php echo ($value['active'] == 1) ? 'selected' : ''; ?>>Active</option>
+                            <option value="2" <?php echo ($value['active'] == 2) ? 'selected' : ''; ?>>Nonactive</option>
                         </select>
                     </div>
                 </div>

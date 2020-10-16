@@ -26,6 +26,7 @@
 <script src="<?php echo base_url('assets/template/plugins'); ?>/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="<?php echo base_url('assets/template/plugins'); ?>/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?php echo base_url('assets/template/plugins'); ?>/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
 <script>
     $(function() {
         $("#table1").DataTable({});
@@ -55,8 +56,6 @@
     }).parentsUntil(".nav-sidebar > .nav-treeview").addClass('menu-open').prev('a').addClass('active');
 </script>
 <!-- .Active -->
-<!-- SweetAlert -->
-<!-- .Sweet Alert -->
 </body>
 
 </html>
