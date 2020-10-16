@@ -2,33 +2,27 @@
 
 namespace App\Controllers;
 
-use App\Models\Mjadwal;
-use App\Models\Mguru;
+use App\Models\Msiswa;
 use App\Models\Mactive;
-use App\Models\Mpelajaran;
 
-class Jadwal extends BaseController
+class Siswa extends BaseController
 {
 
     public function __construct()
     {
-        $this->Mjadwal = new Mjadwal();
-        $this->Mguru = new Mguru();
+        $this->Msiswa = new Msiswa();
         $this->Mactive = new Mactive();
-        $this->Mpelajaran = new Mpelajaran();
         helper('form');
     }
 
     public function index()
     {
         $data = array(
-            'title' => 'Daftar Jadwal',
-            'jadwal' => $this->Mjadwal->getData(),
-            'kelas' => $this->Mjadwal->getKelas(),
-            'guru' => $this->Mguru->getData(),
-            'pelajaran' => $this->Mpelajaran->getData(),
+            'title' => 'Daftar Siswa',
+            'siswa' => $this->Msiswa->kelasSiswa(),
+            'kelas' => $this->Msiswa->getKelas(),
             'tbl_active' => $this->Mactive->getData(),
-            'konten' => 'jadwal/index'
+            'konten' => 'siswa/index'
         );
         return view('_partial/wrapper', $data);
     }
@@ -36,17 +30,19 @@ class Jadwal extends BaseController
     public function add()
     {
         $data = array(
+            'nisn' => $this->request->getPost('nisn'),
+            'tgl_lhr' => $this->request->getPost('tgl_lhr'),
+            'nama_siswa' => $this->request->getPost('nama_siswa'),
+            'kelahiran' => $this->request->getPost('kelahiran'),
+            'gender' => $this->request->getPost('gender'),
+            'alamat' => $this->request->getPost('alamat'),
+            'periode' => $this->request->getPost('periode'),
             'kelas_id' => $this->request->getPost('kelas_id'),
-            'pelajaran_id' => $this->request->getPost('pelajaran_id'),
-            'guru_id' => $this->request->getPost('guru_id'),
-            'hari' => $this->request->getPost('hari'),
-            'mulai' => $this->request->getPost('mulai'),
-            'selesai' => $this->request->getPost('selesai'),
             'active' => $this->request->getPost('active'),
         );
-        $this->Mjadwal->tambah($data);
+        $this->Msiswa->tambah($data);
         session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
-        return redirect()->to(base_url('jadwal'));
+        return redirect()->to(base_url('siswa'));
     }
     public function edit($id)
     {
@@ -59,18 +55,18 @@ class Jadwal extends BaseController
             'selesai' => $this->request->getPost('selesai'),
             'active' => $this->request->getPost('active'),
         );
-        $this->Mjadwal->ubah($data);
+        $this->Msiswa->ubah($data);
         session()->setFlashdata('pesan', 'Data berhasil diubah.');
-        return redirect()->to(base_url('jadwal'));
+        return redirect()->to(base_url('siswa'));
     }
 
     public function delete($id)
     {
         $data = array(
-            'id_jadwal' => $id,
+            'id_siswa' => $id,
         );
-        $this->Mjadwal->hapus($data);
+        $this->Msiswa->hapus($data);
         session()->setFlashdata('pesan', 'Data berhasil dihapus.');
-        return redirect()->to(base_url('jadwal'));
+        return redirect()->to(base_url('siswa'));
     }
 }

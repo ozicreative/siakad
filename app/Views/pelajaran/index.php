@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-md-12">
-        <div class="card card-info">
+        <div class="card card-info card-outline">
             <div class="card-header">
                 <div class="card-tools float-right">
-                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#add"><i class="fa fa-plus"></i> <b>New Data</b></button>
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#add"><i class="fa fa-plus"></i> <b>New Data</b></button>
                 </div>
             </div>
             <div class="card-body">

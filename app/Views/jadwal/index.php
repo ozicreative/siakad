@@ -222,17 +222,17 @@
 
 <!-- /.modal Delete-->
 <?php foreach ($jadwal as $key => $value) { ?>
-    <div class="modal fade" id="delete<?= $value['id_kelas']; ?>">
+    <div class="modal fade" id="delete<?= $value['id_jadwal']; ?>">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Hapus Kelas</h4>
+                    <h4 class="modal-title">Hapus Jadwal</h4>
                 </div>
                 <div class="modal-body">
-                    <h4>Yakin ingin menghapus data <b><?= $value['nama_kelas']; ?></b>...?</h4>
+                    <h4>Yakin ingin menghapus data ini...?</h4>
                 </div>
                 <div class="modal-footer">
-                    <a href="<?= base_url('kelas/delete/' . $value['id_kelas']) ?>" type="submit" class="btn btn-danger">Confirm</a>
+                    <a href="<?= base_url('jadwal/delete/' . $value['id_jadwal']) ?>" type="submit" class="btn btn-danger">Confirm</a>
                 </div>
             </div>
             <!-- /.modal-content -->

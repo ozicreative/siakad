@@ -23,6 +23,11 @@
     <script type="text/javascript" id="debugbar_loader" data-time="1585277113" src="<?php echo base_url('assets/template/plugins/'); ?>/index.php?debugbar"></script> -->
 
     <style>
+        .table.dataTable {
+            font-family: roboto;
+            font-size: 14px;
+        }
+
         .color-palette {
             height: 35px;
             line-height: 35px;
