@@ -149,66 +149,64 @@
                     ?>
 
                     <div class="form-group row">
-                    <div class="form-group col-lg-6">
-                        <label>Kelas</label>
-                        <select name="kelas_id" id="kelas_id" class="form-control" required>
-                            <option><?= $value['lvl_kelas'] ?> - <?= $value['nama_kelas'] ?></option>
-                            <?php foreach ($kelas as $key => $value) { ?>
-                                <option value="<?= $value['id_kelas'] ?>"><?= $value['nama_kelas'] ?></option>
-                            <?php } ?>
-                        </select>
+                        <div class="form-group col-lg-6">
+                            <label>Kelas</label>
+                            <select name="kelas_id" id="kelas_id" class="form-control" required>
+                                <option><?= $value['lvl_kelas'] ?> - <?= $value['nama_kelas'] ?></option>
+                                <?php foreach ($kelas as $key => $value) { ?>
+                                    <option value="<?= $value['id_kelas'] ?>"><?= $value['nama_kelas'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>Hari</label>
+                            <select name="hari" id="hari" class="form-control" required>
+                                <option value="Senin">Senin</option>
+                                <option value="Selasa">Selasa</option>
+                                <option value="Rabu">Rabu</option>
+                                <option value="Kamis">Kamis</option>
+                                <option value="Jumat">Jumat</option>
+                                <option value="Sabtu">Sabtu</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group col-lg-6">
-                        <label>Hari</label>
-                        <select name="hari" id="hari" class="form-control" required>
-                            <option value="Senin">Senin</option>
-                            <option value="Selasa">Selasa</option>
-                            <option value="Rabu">Rabu</option>
-                            <option value="Kamis">Kamis</option>
-                            <option value="Jumat">Jumat</option>
-                            <option value="Sabtu">Sabtu</option>
-                        </select>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label>Pelajaran</label>
+                            <select name="pelajaran_id" id="pelajaran_id" class="form-control" required>
+                                <option>- pilih mapel -</option>
+                                <?php foreach ($pelajaran as $key => $value) { ?>
+                                    <option value="<?= $value['id_pelajaran'] ?>"><?= $value['nama_pelajaran'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Start</label>
+                            <input type="time" name="mulai" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>End</label>
+                            <input type="time" name="selesai" class="form-control" required>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <div class="form-group col-md-6">
-                        <label>Pelajaran</label>
-                        <select name="pelajaran_id" id="pelajaran_id" class="form-control" required>
-                            <option>- pilih mapel -</option>
-                            <?php foreach ($pelajaran as $key => $value) { ?>
-                                <option value="<?= $value['id_pelajaran'] ?>"><?= $value['nama_pelajaran'] ?></option>
-                            <?php } ?>
-                        </select>
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <label>Guru</label>
+                            <select name="guru_id" id="guru_id" class="form-control" required>
+                                <option>- pilih guru -</option>
+                                <?php foreach ($guru as $key => $value) { ?>
+                                    <option value="<?= $value['id_guru'] ?>"><?= $value['nama_guru'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Status</label>
+                            <select name="active" id="active" class="form-control" required>
+                                <option value="1" <?php echo ($value['active'] == 1) ? 'selected' : ''; ?>>Active</option>
+                                <option value="2" <?php echo ($value['active'] == 2) ? 'selected' : ''; ?>>Nonactive</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label>Start</label>
-                        <input type="time" name="mulai" class="form-control" required>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>End</label>
-                        <input type="time" name="selesai" class="form-control" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="form-group col-md-6">
-                        <label>Guru</label>
-                        <select name="guru_id" id="guru_id" class="form-control" required>
-                            <option>- pilih guru -</option>
-                            <?php foreach ($guru as $key => $value) { ?>
-                                <option value="<?= $value['id_guru'] ?>"><?= $value['nama_guru'] ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>Status</label>
-                        <select name="active" id="active" class="form-control" required>
-                            <option>- status -</option>
-                            <?php foreach ($tbl_active as $key => $value) { ?>
-                                <option value="<?= $value['id_active'] ?>"><?= $value['nama_active'] ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success">Update</button>

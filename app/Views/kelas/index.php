@@ -109,19 +109,18 @@
                     <div class="form-group">
                         <label>Kelas</label>
                         <select name="lvl_kelas" class="form-control">
-                        <option><?= $value['lvl_kelas']?></option>
-                        <option value="X">X</option>
-                        <option value="XI">XI</option>
-                        <option value="XII">XII</option>
-                    </select>
+                            <option><?= $value['lvl_kelas'] ?></option>
+                            <option value="X">X</option>
+                            <option value="XI">XI</option>
+                            <option value="XII">XII</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Status</label>
                         <select name="active" class="form-control">
-                        <option value="<?= $value['active']?>"><?= $value['nama_active']?></option>
-                        <option value="1">Aktif</option>
-                        <option value="2">Nonaktif</option>
-                    </select>
+                            <option value="1" <?php echo ($value['active'] == 1) ? 'selected' : ''; ?>>Active</option>
+                            <option value="2" <?php echo ($value['active'] == 2) ? 'selected' : ''; ?>>Nonactive</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
