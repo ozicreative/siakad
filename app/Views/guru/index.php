@@ -12,7 +12,7 @@
                     echo session()->getFlashdata('pesan');
                     echo '</div>';
                 } ?>
-                <table class="table table-bordered" id="table1">
+                <table class="table table-bordered table-hover" id="table1">
                     <thead>
                         <tr>
                             <th width="30px">No</th>
