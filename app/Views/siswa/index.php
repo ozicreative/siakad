@@ -51,9 +51,6 @@
 <div class="modal fade" id="add">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Tambah Siswa</h4>
-            </div>
             <div class="modal-body">
                 <?php
                 echo form_open('siswa/add')
@@ -110,15 +107,14 @@
                 <div class="form-group">
                     <label>Status</label>
                     <select name="active" id="active" class="form-control" required>
-                        <option>- status -</option>
                         <?php foreach ($tbl_active as $key => $value) { ?>
                             <option value="<?= $value['id_active'] ?>"><?= $value['nama_active'] ?></option>
                         <?php } ?>
                     </select>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-info">Simpan</button>
+                <div class="form-group float-right">
+                <button type="submit" class="btn btn-danger btn-md">Simpan</button>
+                </div>
             </div>
             <?php echo form_close() ?>
         </div>
@@ -193,8 +189,8 @@
                     <div class="form-group">
                         <label>Status</label>
                         <select name="active" class="form-control">
-                            <option value="1" <?php echo ($value['active'] == 1) ? 'selected' : ''; ?>>Active</option>
-                            <option value="2" <?php echo ($value['active'] == 2) ? 'selected' : ''; ?>>Nonactive</option>
+                            <option value="1">Active</option>
+                            <option value="2">Nonactive</option>
                         </select>
                     </div>
                 </div>
