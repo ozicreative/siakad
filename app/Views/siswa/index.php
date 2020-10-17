@@ -131,10 +131,10 @@
 <!-- /.modal Edit-->
 <?php foreach ($siswa as $key => $value) { ?>
     <div class="modal fade" id="edit<?= $value['id_siswa']; ?>">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Ubah Data Siswa</h4>
+                    <h5 class="modal-title">Ubah Data Siswa</h5>
                 </div>
                 <div class="modal-body">
                     <?php
@@ -148,33 +148,37 @@
                         </div>
                         <div class="form-group col-lg-6">
                             <label>Tanggal Lahir</label>
-                            <input type="date" name="tgl_lhr" class="form-control" required>
+                            <input type="date" value="<?=$value['tgl_lhr']?>" name="tgl_lhr" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-lg-6">
                             <label>Nama</label>
-                            <input type="text" name="nama_siswa" class="form-control" required>
+                            <input type="text" value="<?=$value['nama_siswa']?>" name="nama_siswa" class="form-control" required>
                         </div>
                         <div class="form-group col-lg-6">
                             <label>Kota Kelahiran</label>
-                            <input type="text" name="kelahiran" class="form-control" required>
+                            <input type="text" value="<?=$value['kelahiran']?>" name="kelahiran" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-lg-6">
                             <label>Jenis Kelamin</label>
-                            <input type="text" name="gender" class="form-control" required>
+                            <select name="gender" class="form-control">
+                            <option><?= $value['gender'] ?></option>
+                            <option value="L">Laki - laki</option>
+                            <option value="P">Perempuan</option>
+                        </select>
                         </div>
                         <div class="form-group col-lg-6">
                             <label>Alamat</label>
-                            <input type="text" name="alamat" class="form-control" required>
+                            <input type="text" value="<?=$value['alamat']?>" name="alamat" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-lg-6">
                             <label>Periode</label>
-                            <input type="date('Y')" name="periode" class="form-control" required>
+                            <input type="number" value="<?=$value['periode']?>" name="periode" class="form-control" required>
                         </div>
                         <div class="form-group col-lg-6">
                             <label>Kelas</label>
@@ -188,11 +192,9 @@
                     </div>
                     <div class="form-group">
                         <label>Status</label>
-                        <select name="active" id="active" class="form-control" required>
-                            <option>- status -</option>
-                            <?php foreach ($tbl_active as $key => $value) { ?>
-                                <option value="<?= $value['id_active'] ?>"><?= $value['nama_active'] ?></option>
-                            <?php } ?>
+                        <select name="active" class="form-control">
+                            <option value="1" <?php echo ($value['active'] == 1) ? 'selected' : ''; ?>>Active</option>
+                            <option value="2" <?php echo ($value['active'] == 2) ? 'selected' : ''; ?>>Nonactive</option>
                         </select>
                     </div>
                 </div>

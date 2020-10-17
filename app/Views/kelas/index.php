@@ -35,8 +35,8 @@
                                 <td><?= $value['lvl_kelas'];  ?></td>
                                 <td><?= $value['nama_active'];  ?></td>
                                 <td>
-                                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit<?= $value['id_kelas']; ?>"><i class="fas fa-edit"></i> Edit</button>
-                                    <button class="btn btn-danger btn-sm btnhapus" data-toggle="modal" data-target="#delete<?= $value['id_kelas']; ?>"><i class="fas fa-trash-alt"></i> Hapus</button>
+                                    <button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit<?= $value['id_kelas']; ?>"><i class="fas fa-edit"></i> Edit</button>
+                                    <button class="btn btn-danger btn-xs btnhapus" data-toggle="modal" data-target="#delete<?= $value['id_kelas']; ?>"><i class="fas fa-trash-alt"></i> Hapus</button>
                                 </td>
                             </tr>
                         <?php } ?>

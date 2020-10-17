@@ -20,4 +20,18 @@ class Mks extends Model
     {
         $this->db->table('kelas_siswa')->insert($data);
     }
+
+    public function ubah($data)
+    {
+        $this->db->table('kelas_siswa')
+            ->where('id_kelassiswa', $data['id_kelassiswa'])
+            ->update($data);
+    }
+
+    public function hapus($data)
+    {
+        $this->db->table('kelas_siswa')
+            ->where('id_kelassiswa', $data['id_kelassiswa'])
+            ->delete($data);
+    }
 }
