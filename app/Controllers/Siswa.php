@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Msiswa;
+use App\Models\Mks;
 use App\Models\Mactive;
 
 class Siswa extends BaseController
@@ -11,6 +12,7 @@ class Siswa extends BaseController
     public function __construct()
     {
         $this->Msiswa = new Msiswa();
+        $this->Mks = new Mks();
         $this->Mactive = new Mactive();
         helper('form');
     }
@@ -36,11 +38,19 @@ class Siswa extends BaseController
             'kelahiran' => $this->request->getPost('kelahiran'),
             'gender' => $this->request->getPost('gender'),
             'alamat' => $this->request->getPost('alamat'),
-            'periode' => $this->request->getPost('periode'),
-            'kelas_id' => $this->request->getPost('kelas_id'),
             'active' => $this->request->getPost('active'),
         );
         $this->Msiswa->tambah($data);
+        $siswaID = $this->Msiswa->insertID();
+        $activeID = $this->Msiswa->insertID();
+
+        $data = array(
+            'siswa_id' => $siswaID,
+            'kelas_id' => $this->request->getPost('kelas_id'),
+            'periode' => $this->request->getPost('periode'),
+            'active' => $activeID,
+        );
+        $this->Mks->tambah($data);
         session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
         return redirect()->to(base_url('siswa'));
     }
