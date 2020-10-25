@@ -112,35 +112,35 @@
 
 <body>
     <div class="login-form">
-        <?= form_open('auth/cekuser', ['class' => 'formlogin']) ?>
+
+        <?php echo form_open('auth/cek_login'); ?>
+
         <div class="avatar">
             <li style="font-size:63px;color:white;margin-left:6px" class="fa fa-user text-center"></li>
         </div>
         <h2 class="text-center">Login</h2>
         <div class="form-group">
+
             <?php if (!empty(session()->getFlashdata('gagal'))) { ?>
                 <div class="alert alert-warning">
                     <?php echo session()->getFlashdata('gagal'); ?>
                 </div>
             <?php } ?>
+            
         </div>
         <div class="form-group">
             <input type="text" class="form-control" name="username" id="username" placeholder="Username" autofocus>
-            <div class="invalid-feedback errorUserID">
-            </div>
         </div>
         <div class="form-group">
             <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-            <div class="invalid-feedback errorPassword">
-            </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg btn-block btnlogin">Login</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
         </div>
-        <div class="bottom-action clearfix">
+        <!-- <div class="bottom-action clearfix">
             <a href="#" class="float-right">Forgot Password?</a>
-        </div>
-        <?php echo form_close();  ?>
+        </div> -->
+        <?php echo form_close(); ?>
     </div>
 
     <!-- Script -->
