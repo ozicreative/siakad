@@ -17,8 +17,8 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Dashboard');
-$routes->setDefaultMethod('index');
+$routes->setDefaultController('Auth');
+$routes->setDefaultMethod('login');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
@@ -31,7 +31,16 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Dashboard::index');
+$routes->get('/', 'Auth::login');
+
+$routes->get('auth/logout', 'Auth::logout');
+
+$routes->get('dashboard', 'Dashboard::index');
+$routes->get('guru/', 'Guru::index');
+$routes->get('siswa/', 'Siswa::index');
+$routes->get('kelas/', 'Kelas::index');
+$routes->get('pelajaran/', 'Pelajaran::index');
+$routes->get('jadwal/', 'Jadwal::index');
 /**
  * --------------------------------------------------------------------
  * Additional Routing

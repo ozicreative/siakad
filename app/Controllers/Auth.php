@@ -13,16 +13,11 @@ class Auth extends BaseController
         $this->Mauth = new Mauth();
     }
 
-    public function index()
+    public function login()
     {
         $data = array(
             'title' => 'Login',
-            'konten' => 'index'
         );
-        return view('_partial/wrapper', $data);
-    }
-
-    public function Login()
-    {
+        return view('auth/login', $data);
     }
 }
