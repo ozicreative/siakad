@@ -38,4 +38,16 @@ class Kehadiran extends BaseController
         );
         return view('_partial/wrapper', $data);
     }
+
+    public function generate()
+    {
+        $data = array(
+            'title' => 'Tambah Kehadiran',
+            'key_kehadiran' => $this->request->getPost(),
+            'konten' => 'kehadiran/'
+        );
+        $nomer = uniqid('', $data["tanggal"]);
+
+        $this->Mkehadiran->generate($data, $nomer);
+    }
 }

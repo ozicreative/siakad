@@ -34,7 +34,7 @@
                         foreach ($kehadiran as $key => $row) { ?>
                             <tr>
                                 <td><?= $row["tanggal"];  ?></td>
-                                <td><?= $row['nama_kelas'];  ?></td>
+                                <td><?= $row['kelas'];  ?></td>
                                 <td><?= $row['TOTAL'];  ?></td>
                                 <td><?= $row['MASUK'];  ?></td>
                                 <td><?= $row['IJIN'];  ?></td>
