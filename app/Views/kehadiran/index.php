@@ -31,17 +31,17 @@
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($kehadiran as $key => $value) { ?>
+                        foreach ($kehadiran as $key => $row) { ?>
                             <tr>
-                                <td><?= date('d-m-Y', strtotime($value["tanggal"]));  ?></td>
-                                <td><?= $value['nama_kelas'];  ?></td>
-                                <td><?= $value['TOTAL'];  ?></td>
-                                <td><?= $value['MASUK'];  ?></td>
-                                <td><?= $value['IJIN'];  ?></td>
-                                <td><?= $value['ALPHA'];  ?></td>
-                                <td><?= $value['SAKIT'];  ?></td>
+                                <td><?= $row["tanggal"];  ?></td>
+                                <td><?= $row['nama_kelas'];  ?></td>
+                                <td><?= $row['TOTAL'];  ?></td>
+                                <td><?= $row['MASUK'];  ?></td>
+                                <td><?= $row['IJIN'];  ?></td>
+                                <td><?= $row['ALPHA'];  ?></td>
+                                <td><?= $row['SAKIT'];  ?></td>
                                 <td>
-                                    <button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit<?= $value['id_kehadiran']; ?>"><i class="fas fa-edit"></i> Edit</button>
+                                    <a href="<?= base_url('kehadiran/view/'.$row['key_kehadiran']); ?>" class="btn btn-info btn-xs"><i class="fas fa-eye"></i> Lihat</a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -74,18 +74,11 @@
                     </div>
                     <div class="form-group col-lg-6">
                         <label>Tanggal</label>
-                        <select name="tanggal" id="tanggal" class="form-control" required>
-                            <option value="Senin">Senin</option>
-                            <option value="Selasa">Selasa</option>
-                            <option value="Rabu">Rabu</option>
-                            <option value="Kamis">Kamis</option>
-                            <option value="Jumat">Jumat</option>
-                            <option value="Sabtu">Sabtu</option>
-                        </select>
+                        <input type="date" name="tanggal" id="tanggal" class="form-control" required>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-info">Simpan</button>
+                    <button type="submit" class="btn btn-info">Generate</button>
                 </div>
                 <?php echo form_close() ?>
             </div>
