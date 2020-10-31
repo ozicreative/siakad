@@ -23,6 +23,7 @@ class Siswa extends BaseController
             'title' => 'Daftar Siswa',
             'siswa' => $this->Msiswa->kelasSiswa(),
             'kelas' => $this->Msiswa->getKelas(),
+            'kelas_siswa' => $this->Mks->getData(),
             'tbl_active' => $this->Mactive->getData(),
             'konten' => 'siswa/index'
         );
@@ -57,15 +58,23 @@ class Siswa extends BaseController
     public function edit($id)
     {
         $data = array(
-            'kelas_id' => $id,
-            'pelajaran_id' => $this->request->getPost('pelajaran_id'),
-            'guru_id' => $this->request->getPost('guru_id'),
-            'hari' => $this->request->getPost('hari'),
-            'mulai' => $this->request->getPost('mulai'),
-            'selesai' => $this->request->getPost('selesai'),
+            'id_siswa' => $id,
+            'nisn' => $this->request->getPost('nisn'),
+            'tgl_lhr' => $this->request->getPost('tgl_lhr'),
+            'nama_siswa' => $this->request->getPost('nama_siswa'),
+            'kelahiran' => $this->request->getPost('kelahiran'),
+            'gender' => $this->request->getPost('gender'),
+            'alamat' => $this->request->getPost('alamat'),
             'active' => $this->request->getPost('active'),
         );
         $this->Msiswa->ubah($data);
+
+        $data = array(
+            'id_kelassiswa' => $id,
+            'periode' => $this->request->getPost('periode'),
+            'kelas_id' => $this->request->getPost('kelas_id'),
+        );
+        $this->Mks->ubah($data);
         session()->setFlashdata('pesan', 'Data berhasil diubah.');
         return redirect()->to(base_url('siswa'));
     }

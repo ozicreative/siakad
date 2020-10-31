@@ -31,9 +31,11 @@
                                 <td><?= $value['nama_guru'];  ?></td>
                                 <td><?= $value['nama_active'];  ?></td>
                                 <td>
-                                    <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#edit<?= $value['id_guru']; ?>"><i class="fas fa-eye"></i> View</button>
+                                    <div class="btn-group">
+                                    <!-- <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#edit<?= $value['id_guru']; ?>"><i class="fas fa-eye"></i> View</button> -->
                                     <button class="btn btn-warning btn-xs btn-edit" data-toggle="modal" data-target="#edit<?= $value['id_guru']; ?>"><i class="fas fa-edit"></i> Edit</button>
                                     <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete<?= $value['id_guru']; ?>"><i class="fas fa-trash-alt"></i> Hapus</button>
+                                    </div>
                                 </td>
                             </tr>
                         <?php } ?>

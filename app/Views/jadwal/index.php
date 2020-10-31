@@ -39,8 +39,10 @@
                                 <td><?= $value['nama_pelajaran']; ?></td>
                                 <td><?= $value['nama_guru']; ?></td>
                                 <td>
+                                    <div class="btn-group">
                                     <button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit<?= $value['id_jadwal']; ?>"><i class="fas fa-edit"></i> Edit</button>
                                     <button class="btn btn-danger btn-xs btnhapus" data-toggle="modal" data-target="#delete<?= $value['id_jadwal']; ?>"><i class="fas fa-trash-alt"></i> Hapus</button>
+                                    </div>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -88,8 +90,8 @@
                         <label>Pelajaran</label>
                         <select name="pelajaran_id" id="pelajaran_id" class="form-control" required>
                             <option>- pilih mapel -</option>
-                            <?php foreach ($pelajaran as $key => $value) { ?>
-                                <option value="<?= $value['id_pelajaran'] ?>"><?= $value['nama_pelajaran'] ?></option>
+                            <?php foreach ($pelajaran as $key => $mapel) { ?>
+                                <option value="<?= $mapel['id_pelajaran'] ?>"><?= $mapel['nama_pelajaran'] ?></option>
                             <?php } ?>
                         </select>
                     </div>
@@ -149,18 +151,20 @@
                     ?>
 
                     <div class="form-group row">
-                        <div class="form-group col-lg-6">
+                        <div class="form-group col-lg-8">
                             <label>Kelas</label>
                             <select name="kelas_id" id="kelas_id" class="form-control" required>
-                                <option><?= $value['lvl_kelas'] ?> - <?= $value['nama_kelas'] ?></option>
-                                <?php foreach ($kelas as $key => $value) { ?>
-                                    <option value="<?= $value['id_kelas'] ?>"><?= $value['nama_kelas'] ?></option>
+                                <?php foreach ($kelas as $key => $row) { ?>
+                                    <option value="<?= $row['id_kelas'] ?>" <?php if ($value['kelas_id'] == $row['id_kelas']) {
+                                                                                echo "selected";
+                                                                            } ?>><?= $row['nama_kelas'] ?></option>
                                 <?php } ?>
                             </select>
                         </div>
-                        <div class="form-group col-lg-6">
+                        <div class="form-group col-lg-4">
                             <label>Hari</label>
                             <select name="hari" id="hari" class="form-control" required>
+                                <option><?= $value['hari'] ?></option>
                                 <option value="Senin">Senin</option>
                                 <option value="Selasa">Selasa</option>
                                 <option value="Rabu">Rabu</option>
@@ -173,37 +177,42 @@
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <label>Pelajaran</label>
-                            <select name="pelajaran_id" id="pelajaran_id" class="form-control" required>
-                                <option>- pilih mapel -</option>
-                                <?php foreach ($pelajaran as $key => $value) { ?>
-                                    <option value="<?= $value['id_pelajaran'] ?>"><?= $value['nama_pelajaran'] ?></option>
+                            <select name="pelajaran_id" class="form-control" required>
+                                <?php foreach ($pelajaran as $key => $mapel) { ?>
+                                    <option value="<?= $mapel['id_pelajaran'] ?>" <?php if ($value['pelajaran_id'] == $mapel['id_pelajaran']) {
+                                                                                        echo "selected";
+                                                                                    } ?>><?= $mapel['nama_pelajaran'] ?></option>
                                 <?php } ?>
                             </select>
                         </div>
                         <div class="form-group col-md-3">
                             <label>Start</label>
-                            <input type="time" name="mulai" class="form-control" required>
+                            <input type="time" name="mulai" value="<?= $value['mulai']; ?>" class="form-control" required>
                         </div>
                         <div class="form-group col-md-3">
                             <label>End</label>
-                            <input type="time" name="selesai" class="form-control" required>
+                            <input type="time" name="selesai" value="<?= $value['selesai']; ?>" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-8">
                             <label>Guru</label>
                             <select name="guru_id" id="guru_id" class="form-control" required>
-                                <option>- pilih guru -</option>
-                                <?php foreach ($guru as $key => $value) { ?>
-                                    <option value="<?= $value['id_guru'] ?>"><?= $value['nama_guru'] ?></option>
+                                <?php foreach ($guru as $key => $gur) { ?>
+                                    <option value="<?= $gur['id_guru'] ?>" <?php if ($value['guru_id'] == $gur['id_guru']) {
+                                                                                echo "selected";
+                                                                            } ?>><?= $gur['nama_guru'] ?></option>
                                 <?php } ?>
                             </select>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label>Status</label>
                             <select name="active" id="active" class="form-control" required>
-                                <option value="1" <?php echo ($value['active'] == 1) ? 'selected' : ''; ?>>Active</option>
-                                <option value="2" <?php echo ($value['active'] == 2) ? 'selected' : ''; ?>>Nonactive</option>
+                                <?php foreach ($tbl_active as $key => $act) { ?>
+                                    <option value="<?= $act['id_active'] ?>" <?php if ($value['active'] == $act['id_active']) {
+                                                                                    echo "selected";
+                                                                                } ?>><?= $act['nama_active'] ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Mjadwal;
 use App\Models\Mguru;
+use App\Models\Mks;
 use App\Models\Mactive;
 use App\Models\Mpelajaran;
 
@@ -14,6 +15,7 @@ class Jadwal extends BaseController
     {
         $this->Mjadwal = new Mjadwal();
         $this->Mguru = new Mguru();
+        $this->Mks = new Mks();
         $this->Mactive = new Mactive();
         $this->Mpelajaran = new Mpelajaran();
         helper('form');
@@ -51,7 +53,8 @@ class Jadwal extends BaseController
     public function edit($id)
     {
         $data = array(
-            'kelas_id' => $id,
+            'id_jadwal' => $id,
+            'kelas_id' => $this->request->getPost('kelas_id'),
             'pelajaran_id' => $this->request->getPost('pelajaran_id'),
             'guru_id' => $this->request->getPost('guru_id'),
             'hari' => $this->request->getPost('hari'),

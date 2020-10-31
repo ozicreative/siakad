@@ -7,4 +7,16 @@ use CodeIgniter\Model;
 class Mauth extends Model
 {
     
+    public function tambahUser($data)
+    {
+        $this->db->table('user')->insert($data);
+    }
+
+    public function login($username,$password)
+    {
+        return $this->db->table('user')->where([
+            'username'=>$username,
+            'password'=>$password,
+        ])->get()->getRowArray();
+    }
 }

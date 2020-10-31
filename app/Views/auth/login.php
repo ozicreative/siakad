@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login</title>
+    <title><?= $title ?></title>
     <link rel="stylesheet" href="<?= base_url('assets/template/plugins/'); ?>/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url('assets/template/plugins'); ?>/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="<?= base_url('assets/template/plugins/'); ?>/sweetalert2/sweetalert2.css">
@@ -121,12 +121,25 @@
         <h2 class="text-center">Login</h2>
         <div class="form-group">
 
-            <?php if (!empty(session()->getFlashdata('gagal'))) { ?>
-                <div class="alert alert-warning">
-                    <?php echo session()->getFlashdata('gagal'); ?>
+            <?php
+            $errors = session()->getFlashdata('errors');
+            if (!empty($errors)) {
+            ?>
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        <?php foreach ($errors as $error) : ?>
+                            <li><?= esc($error) ?></li>
+                        <?php endforeach ?>
+                    </ul>
                 </div>
             <?php } ?>
-            
+
+            <?php
+            if (session()->getFlashdata('pesan')) {
+                echo '<div class="alert alert-success" role="alert">';
+                echo session()->getFlashdata('pesan');
+                echo '</div>';
+            } ?>
         </div>
         <div class="form-group">
             <input type="text" class="form-control" name="username" id="username" placeholder="Username" autofocus>

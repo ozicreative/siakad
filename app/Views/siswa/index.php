@@ -15,14 +15,14 @@
                 <table class="table table-bordered table-hover" id="table1">
                     <thead>
                         <tr>
-                            <th>NISN</th>
+                            <th width="8%">NISN</th>
                             <th>Nama</th>
                             <th>Kelas</th>
                             <th>Alamat</th>
-                            <th>L/P</th>
-                            <th>Kelahiran</th>
+                            <th width="5%">Gender</th>
                             <th>Tgl Lahir</th>
-                            <th>Aksi</th>
+                            <th>Kelahiran</th>
+                            <th width="10px">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,11 +33,13 @@
                                 <td><?= $value['lvl_kelas'];  ?></td>
                                 <td><?= $value['alamat'];  ?></td>
                                 <td><?= $value['gender'];  ?></td>
-                                <td><?= $value['kelahiran'];  ?></td>
                                 <td><?= date('d-m-Y',strtotime($value["tgl_lhr"])) ;  ?></td>
+                                <td><?= $value['kelahiran'];  ?></td>
                                 <td>
-                                    <button class="btn btn-warning btn-xs btn-edit" data-toggle="modal" data-target="#edit<?= $value['id_siswa']; ?>"><i class="fas fa-edit"></i> Edit</button>
-                                    <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete<?= $value['id_siswa']; ?>"><i class="fas fa-trash-alt"></i> Hapus</button>
+                                    <div class="btn-group">
+                                    <a href="#edit<?= $value['id_siswa']; ?>" role="button" class="btn btn-sm btn-warning" data-toggle="modal" data-placement="top" title="Edit"><i class="fas fa-edit"></i></a>
+                                    <a href="#delete<?= $value['id_siswa']; ?>" role="button" class="btn btn-sm btn-danger" data-toggle="modal" data-placement="top" title="Hapus"><i class="fas fa-trash-alt"></i></a>
+                                    </div>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -179,7 +181,7 @@
                         <div class="form-group col-lg-6">
                             <label>Kelas</label>
                             <select name="kelas_id" id="kelas_id" class="form-control" required>
-                                <option>- pilih kelas -</option>
+                                <option><?= $value['lvl_kelas'] ?></option>
                                 <?php foreach ($kelas as $key => $value) { ?>
                                     <option value="<?= $value['id_kelas'] ?>"><?= $value['nama_kelas'] ?></option>
                                 <?php } ?>

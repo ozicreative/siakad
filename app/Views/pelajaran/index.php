@@ -21,7 +21,6 @@
                         <tr>
                             <th width="30px">No</th>
                             <th>Pelajaran</th>
-                            <th>Kelas</th>
                             <th>Status</th>
                             <th width="22%">Aksi</th>
                         </tr>
@@ -32,11 +31,12 @@
                             <tr>
                                 <td><?= $no++;  ?></td>
                                 <td><?= $value['nama_pelajaran'];  ?></td>
-                                <td><?= $value['lvl_kls'];  ?></td>
                                 <td><?= $value['nama_active'];  ?></td>
                                 <td>
+                                    <div class="btn-group">
                                     <button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit<?= $value['id_pelajaran']; ?>"><i class="fas fa-edit"></i> Edit</button>
                                     <button class="btn btn-danger btn-xs btnhapus" data-toggle="modal" data-target="#delete<?= $value['id_pelajaran']; ?>"><i class="fas fa-trash-alt"></i> Hapus</button>
+                                    </div>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -61,14 +61,6 @@
                 <div class="form-group">
                     <label>Pelajaran</label>
                     <input name="nama_pelajaran" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label>Kelas</label>
-                    <select name="lvl_kls" id="lvl_kls" class="form-control" required>
-                        <option value="X">X</option>
-                        <option value="XI">XI</option>
-                        <option value="XII">XII</option>
-                    </select>
                 </div>
                 <div class="form-group">
                     <label>Status</label>
@@ -105,15 +97,6 @@
                     <div class="form-group">
                         <label>Pelajaran</label>
                         <input name="nama_pelajaran" value="<?= $value['nama_pelajaran']; ?>" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Kelas</label>
-                        <select name="lvl_kls" id="lvl_kls" class="form-control">
-                            <option><?= $value['lvl_kls']; ?></option>
-                            <option value="X">X</option>
-                            <option value="XI">XI</option>
-                            <option value="XII">XII</option>
-                        </select>
                     </div>
                     <div class="form-group">
                         <label>Status</label>

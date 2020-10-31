@@ -29,10 +29,8 @@
 
 <script>
     $(function() {
-        $("#table1").DataTable({
-            
-        });
-
+        $("#table1").DataTable({});
+        $('[data-toggle="modal"]').tooltip()
     });
 </script>
 <!-- Alert -->

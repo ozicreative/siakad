@@ -27,7 +27,6 @@ class Pelajaran extends BaseController
     {
         $data = array(
             'nama_pelajaran' => $this->request->getPost('nama_pelajaran'),
-            'lvl_kls' => $this->request->getPost('lvl_kls'),
             'active' => $this->request->getPost('active'),
         );
         $this->Mpelajaran->tambah($data);
@@ -39,7 +38,6 @@ class Pelajaran extends BaseController
         $data = array(
             'id_pelajaran' => $id,
             'nama_pelajaran' => $this->request->getPost('nama_pelajaran'),
-            'lvl_kls' => $this->request->getPost('lvl_kls'),
             'active' => $this->request->getPost('active'),
         );
         $this->Mpelajaran->ubah($data);

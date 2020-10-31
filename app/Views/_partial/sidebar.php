@@ -86,7 +86,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="<?php echo base_url('kehadiran'); ?>" class="nav-link">
             <i class="nav-icon far fa-calendar-check"></i>
             <p>Kehadiran</p>
           </a>
