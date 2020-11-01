@@ -33,12 +33,12 @@
                                 <td><?= $value['lvl_kelas'];  ?></td>
                                 <td><?= $value['alamat'];  ?></td>
                                 <td><?= $value['gender'];  ?></td>
-                                <td><?= date('d-m-Y',strtotime($value["tgl_lhr"])) ;  ?></td>
+                                <td><?= date('d-m-Y', strtotime($value["tgl_lhr"]));  ?></td>
                                 <td><?= $value['kelahiran'];  ?></td>
                                 <td>
                                     <div class="btn-group">
-                                    <a href="#edit<?= $value['id_siswa']; ?>" role="button" class="btn btn-sm btn-warning" data-toggle="modal" data-placement="top" title="Edit"><i class="fas fa-edit"></i></a>
-                                    <a href="#delete<?= $value['id_siswa']; ?>" role="button" class="btn btn-sm btn-danger" data-toggle="modal" data-placement="top" title="Hapus"><i class="fas fa-trash-alt"></i></a>
+                                        <a href="#edit<?= $value['id_siswa']; ?>" role="button" class="btn btn-sm btn-warning" data-toggle="modal" data-placement="top" title="Edit"><i class="fas fa-edit"></i></a>
+                                        <a href="#delete<?= $value['id_siswa']; ?>" role="button" class="btn btn-sm btn-danger" data-toggle="modal" data-placement="top" title="Hapus"><i class="fas fa-trash-alt"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -82,9 +82,9 @@
                     <div class="form-group col-lg-6">
                         <label>Jenis Kelamin</label>
                         <select name="gender" id="gender" class="form-control" required>
-                        <option value="L">Laki - laki</option>
-                        <option value="P">Perempuan</option>
-                    </select>
+                            <option value="L">Laki - laki</option>
+                            <option value="P">Perempuan</option>
+                        </select>
                     </div>
                     <div class="form-group col-lg-6">
                         <label>Alamat</label>
@@ -109,13 +109,12 @@
                 <div class="form-group">
                     <label>Status</label>
                     <select name="active" id="active" class="form-control" required>
-                        <?php foreach ($tbl_active as $key => $value) { ?>
-                            <option value="<?= $value['id_active'] ?>"><?= $value['nama_active'] ?></option>
-                        <?php } ?>
+                        <option value="1">Aktif</option>
+                        <option value="2">Nonaktif</option>
                     </select>
                 </div>
                 <div class="form-group float-right">
-                <button type="submit" class="btn btn-danger btn-md">Simpan</button>
+                    <button type="submit" class="btn btn-danger btn-md">Simpan</button>
                 </div>
             </div>
             <?php echo form_close() ?>
@@ -142,41 +141,41 @@
                     <div class="form-group row">
                         <div class="form-group col-lg-6">
                             <label>NISN</label>
-                            <input name="nisn" value="<?=$value['nisn']?>" class="form-control" required>
+                            <input name="nisn" value="<?= $value['nisn'] ?>" class="form-control" required>
                         </div>
                         <div class="form-group col-lg-6">
                             <label>Tanggal Lahir</label>
-                            <input type="date" value="<?=$value['tgl_lhr']?>" name="tgl_lhr" class="form-control" required>
+                            <input type="date" value="<?= $value['tgl_lhr'] ?>" name="tgl_lhr" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-lg-6">
                             <label>Nama</label>
-                            <input type="text" value="<?=$value['nama_siswa']?>" name="nama_siswa" class="form-control" required>
+                            <input type="text" value="<?= $value['nama_siswa'] ?>" name="nama_siswa" class="form-control" required>
                         </div>
                         <div class="form-group col-lg-6">
                             <label>Kota Kelahiran</label>
-                            <input type="text" value="<?=$value['kelahiran']?>" name="kelahiran" class="form-control" required>
+                            <input type="text" value="<?= $value['kelahiran'] ?>" name="kelahiran" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-lg-6">
                             <label>Jenis Kelamin</label>
                             <select name="gender" class="form-control">
-                            <option><?= $value['gender'] ?></option>
-                            <option value="L">Laki - laki</option>
-                            <option value="P">Perempuan</option>
-                        </select>
+                                <option><?= $value['gender'] ?></option>
+                                <option value="L">Laki - laki</option>
+                                <option value="P">Perempuan</option>
+                            </select>
                         </div>
                         <div class="form-group col-lg-6">
                             <label>Alamat</label>
-                            <input type="text" value="<?=$value['alamat']?>" name="alamat" class="form-control" required>
+                            <input type="text" value="<?= $value['alamat'] ?>" name="alamat" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-lg-6">
                             <label>Periode</label>
-                            <input type="number" value="<?=$value['periode']?>" name="periode" class="form-control" required>
+                            <input type="number" value="<?= $value['periode'] ?>" name="periode" class="form-control" required>
                         </div>
                         <div class="form-group col-lg-6">
                             <label>Kelas</label>

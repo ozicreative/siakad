@@ -44,10 +44,11 @@ class Kehadiran extends BaseController
         $data = array(
             'title' => 'Tambah Kehadiran',
             'key_kehadiran' => $this->request->getPost(),
-            'konten' => 'kehadiran/'
+            $nomer = uniqid('tanggal'),
+            'konten' => 'kehadiran/index'
         );
-        $nomer = uniqid('', $data["tanggal"]);
 
         $this->Mkehadiran->generate($data, $nomer);
+        return view('_partial/wrapper', $data);
     }
 }

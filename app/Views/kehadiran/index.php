@@ -60,7 +60,7 @@
             </div>
             <div class="modal-body">
                 <?php
-                echo form_open('kehadiran/add')
+                echo form_open('kehadiran/generate')
                 ?>
                 <div class="form-group row">
                     <div class="form-group col-lg-6">
