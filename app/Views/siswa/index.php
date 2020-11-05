@@ -19,7 +19,7 @@
                             <th>Nama</th>
                             <th>Kelas</th>
                             <th>Alamat</th>
-                            <th width="5%">Gender</th>
+                            <th width="5%">Gen</th>
                             <th>Tgl Lahir</th>
                             <th>Kelahiran</th>
                             <th width="10px">Aksi</th>
@@ -82,6 +82,7 @@
                     <div class="form-group col-lg-6">
                         <label>Jenis Kelamin</label>
                         <select name="gender" id="gender" class="form-control" required>
+                            <option>-gender-</option>
                             <option value="L">Laki - laki</option>
                             <option value="P">Perempuan</option>
                         </select>
@@ -108,7 +109,8 @@
                 </div>
                 <div class="form-group">
                     <label>Status</label>
-                    <select name="active" id="active" class="form-control" required>
+                    <select name="active" id="active" class="form-control">
+                        <option>-Status-</option>
                         <option value="1">Aktif</option>
                         <option value="2">Nonaktif</option>
                     </select>

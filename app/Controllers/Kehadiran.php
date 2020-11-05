@@ -41,12 +41,16 @@ class Kehadiran extends BaseController
 
     public function generate()
     {
+        helper('text');
+
         $data = array(
             'title' => 'Tambah Kehadiran',
-            'key_kehadiran' => $this->request->getPost(),
-            $nomer = uniqid('tanggal'),
+            'kelasid' => $this->request->getPost(),
+            'tanggal' => $this->request->getPost(),
             'konten' => 'kehadiran/index'
         );
+
+        $nomer = random_string('allnum', 10);
 
         $this->Mkehadiran->generate($data, $nomer);
         return view('_partial/wrapper', $data);

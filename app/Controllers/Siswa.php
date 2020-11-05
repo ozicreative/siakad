@@ -43,13 +43,12 @@ class Siswa extends BaseController
         );
         $this->Msiswa->tambah($data);
         $siswaID = $this->Msiswa->insertID();
-        $activeID = $this->Msiswa->insertID();
 
         $data = array(
             'siswa_id' => $siswaID,
             'kelas_id' => $this->request->getPost('kelas_id'),
             'periode' => $this->request->getPost('periode'),
-            'active' => $activeID,
+            'active' => $this->request->getPost('active'),
         );
         $this->Mks->tambah($data);
         session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');

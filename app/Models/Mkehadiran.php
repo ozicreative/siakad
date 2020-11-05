@@ -47,16 +47,16 @@ class Mkehadiran extends Model
 
     public function getDataSiswa($kelas)
     {
-        $builder = $this->db->query("SELECT *
+        $query = $this->db->query("SELECT *
                                     FROM kelas_siswa
                                     WHERE kelas_id='$kelas'");
 
-        return $builder->getResultArray();
+        return $query->getResultArray();
     }
 
     public function generate($data, $nomer)
     {
-        $siswa = $this->getDataSiswa($data['kelas_id']);
+        $siswa = $this->getDataSiswa($data["kelas_id"]);
 
         $builder = "";
         $this->db->transStart();
@@ -73,7 +73,7 @@ class Mkehadiran extends Model
         }
 
         if ($builder==""){
-            $this->db->stransCommit();
+            $this->db->transCommit();
             $res["status"] = "1";
         }else{
             $this->db->transRollback();

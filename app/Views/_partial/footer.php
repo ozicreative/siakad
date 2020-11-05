@@ -27,10 +27,67 @@
 <script src="<?php echo base_url('assets/template/plugins'); ?>/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?php echo base_url('assets/template/plugins'); ?>/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
-<script>
-    $(function() {
+<script type="text/javascript">
+    $(document).ready(function() {
         $("#table1").DataTable({});
+
         $('[data-toggle="modal"]').tooltip()
+
+        $("#btn_submit").on("click", function() {
+            swal({
+                title: "Are you sure?",
+                text: "Generate data?",
+                type: "info",
+                showCancelButton: true,
+                confirmButtonText: "Yes, do it!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }, function(isConfirm) {
+                if (isConfirm) {
+                    data = {
+                        'kelasid': $("#kelasid").val(),
+                        'tanggal': $("#tanggal").val()
+                    };
+                    console.log(data);
+
+                    $.ajax({
+                        url: "<?php echo base_url(); ?>kehadiran/generate",
+                        type: 'POST',
+                        data: data,
+                        dataType: 'json',
+                        success: function(jsonData) {
+                            console.log(jsonData);
+                            if (jsonData.responseCode == "200") {
+                                swal({
+                                    title: "Generate Success",
+                                    allowEscapeKey: false,
+                                    text: jsonData.responseMsg,
+                                    type: "success",
+                                    confirmButtonText: "OK",
+                                    closeOnConfirm: false
+                                }, function(isConfirm) {
+                                    location.href = "<?php echo base_url(); ?>kehadiran/view/" + jsonData.key_kehadiran
+                                });
+                            } else {
+                                swal("Error", jsonData.responseMsg, "error");
+                            }
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            swal("Error", errorThrown, "error");
+                        }
+                    });
+                } else {
+                    swal("Cancelled", "Save cancelled :)", "error");
+                }
+            });
+        });
+
+        $('#table1 tbody').on('click', 'a', function() {
+            var data = table.row($(this).parents('tr')).data();
+            if ($(this).attr(nama_kelas) == "edit") {
+                location.href = "<?php echo base_url(); ?>kehadiran/view/" + data[0];
+            }
+        });
     });
 </script>
 <!-- Alert -->

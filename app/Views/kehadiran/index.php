@@ -41,7 +41,7 @@
                                 <td><?= $row['ALPHA'];  ?></td>
                                 <td><?= $row['SAKIT'];  ?></td>
                                 <td>
-                                    <a href="<?= base_url('kehadiran/view/'.$row['key_kehadiran']); ?>" class="btn btn-info btn-xs"><i class="fas fa-eye"></i> Lihat</a>
+                                    <a href="<?= base_url('kehadiran/view/' . $row['key_kehadiran']); ?>" class="btn btn-info btn-xs"><i class="fas fa-eye"></i> Lihat</a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -62,10 +62,11 @@
                 <?php
                 echo form_open('kehadiran/generate')
                 ?>
+
                 <div class="form-group row">
                     <div class="form-group col-lg-6">
                         <label>Kelas</label>
-                        <select name="kelas_id" id="kelas_id" class="form-control" required>
+                        <select name="kelasid" id="kelasid" class="form-control" required>
                             <option>- pilih kelas -</option>
                             <?php foreach ($kelas as $key => $value) { ?>
                                 <option value="<?= $value['id_kelas'] ?>"><?= $value['nama_kelas'] ?></option>
@@ -78,7 +79,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-info">Generate</button>
+                <button type="submit" class="btn btn-info">Generate</button>
                 </div>
                 <?php echo form_close() ?>
             </div>
@@ -88,3 +89,6 @@
     </div>
 </div>
 <!-- /.End modal Add-->
+<script type="text/javascript">
+    
+</script>
