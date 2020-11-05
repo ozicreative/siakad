@@ -1,1 +1,2 @@
-# This Project for . . . . . . . . . . ?
+# Readme
+Rename file envcopy jadi .env
