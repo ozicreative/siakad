@@ -9,7 +9,7 @@ class Mkehadiran extends Model
 
     public function getAll()
     {
-        $builder = $this->db->query("SELECT t1.key_kehadiran, DATE_FORMAT(t1.tanggal,'%d-%m-%Y') tanggal, concat(t2.lvl_kelas,' - ',t2.`nama_kelas`) kelas,
+        $builder = $this->db->query("SELECT t1.key_kehadiran, DATE_FORMAT(t1.tanggal,'%d-%m-%Y') tanggal, concat(t2.lvl_kelas,' - ',t2.`nama_kelas`) nama_kelas,
                                 (SELECT COUNT(*) FROM kehadiran WHERE tanggal=t1.tanggal AND kelasid=t1.kelasid) TOTAL,
                                 (SELECT COUNT(*) FROM kehadiran WHERE tanggal=t1.tanggal AND kelasid=t1.kelasid AND `status`='MASUK') MASUK,
                                 (SELECT COUNT(*) FROM kehadiran WHERE tanggal=t1.tanggal AND kelasid=t1.kelasid AND `status`='SAKIT') SAKIT,
@@ -49,7 +49,7 @@ class Mkehadiran extends Model
     {
         $query = $this->db->query("SELECT *
                                     FROM kelas_siswa
-                                    WHERE kelas_id='$kelas'");
+                                    WHERE kelas_id = '$kelas'");
 
         return $query->getResultArray();
     }
@@ -65,17 +65,16 @@ class Mkehadiran extends Model
             VALUES ('" . $nomer . "','" . $row["siswa_id"] . "','" . $data["kelas_id"] . "',
             STR_TO_DATE('" . $data["tanggal"] . "','%d%M,%Y'),'MASUK')");
 
-            if ($this->db->transStatus() === TRUE){
-
-            }else{
+            if ($this->db->transStatus() === TRUE) {
+            } else {
                 $builder = "x";
             }
         }
 
-        if ($builder==""){
+        if ($builder == "") {
             $this->db->transCommit();
             $res["status"] = "1";
-        }else{
+        } else {
             $this->db->transRollback();
             $res["status"] = "0";
         }

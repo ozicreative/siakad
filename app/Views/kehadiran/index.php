@@ -31,20 +31,20 @@
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($kehadiran as $key => $row) { ?>
+                        foreach ($datagrid as $row) : ?>
                             <tr>
-                                <td><?= $row["tanggal"];  ?></td>
-                                <td><?= $row['kelas'];  ?></td>
-                                <td><?= $row['TOTAL'];  ?></td>
-                                <td><?= $row['MASUK'];  ?></td>
-                                <td><?= $row['IJIN'];  ?></td>
-                                <td><?= $row['ALPHA'];  ?></td>
-                                <td><?= $row['SAKIT'];  ?></td>
+                                <td><?= $row['tanggal'] ?></td>
+                                <td><?= $row['nama_kelas'] ?></td>
+                                <td><?= $row['TOTAL'] ?></td>
+                                <td><?= $row['MASUK'] ?></td>
+                                <td><?= $row['IJIN'] ?></td>
+                                <td><?= $row['ALPHA'] ?></td>
+                                <td><?= $row['SAKIT'] ?></td>
                                 <td>
                                     <a href="<?= base_url('kehadiran/view/' . $row['key_kehadiran']); ?>" class="btn btn-info btn-xs"><i class="fas fa-eye"></i> Lihat</a>
                                 </td>
                             </tr>
-                        <?php } ?>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>
@@ -65,12 +65,12 @@
 
                 <div class="form-group row">
                     <div class="form-group col-lg-6">
-                        <label>Kelas</label>
+                        <label for="kelasid">Kelas</label>
                         <select name="kelasid" id="kelasid" class="form-control" required>
                             <option>- pilih kelas -</option>
-                            <?php foreach ($kelas as $key => $value) { ?>
-                                <option value="<?= $value['id_kelas'] ?>"><?= $value['nama_kelas'] ?></option>
-                            <?php } ?>
+                            <?php foreach ($datakelas as $row) : ?>
+                                <option value="<?= $row['id_kelas'] ?>"><?= $row['nama_kelas'] ?></option>
+                            <?php endforeach ?>
                         </select>
                     </div>
                     <div class="form-group col-lg-6">
@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                <button type="submit" class="btn btn-info">Generate</button>
+                    <button type="submit" class="btn btn-info">Generate</button>
                 </div>
                 <?php echo form_close() ?>
             </div>
@@ -89,6 +89,3 @@
     </div>
 </div>
 <!-- /.End modal Add-->
-<script type="text/javascript">
-    
-</script>

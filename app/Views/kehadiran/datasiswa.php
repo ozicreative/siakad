@@ -26,18 +26,18 @@
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($kehadiran as $key => $row) { ?>
+                        foreach ($datagrid as $row) : ?>
                             <tr>
-                                <td><?= $row["tanggal"];  ?></td>
-                                <td><?= $row['nama_siswa'];  ?></td>
-                                <td><?= $row['lvl_kelas'];  ?> - <?= $row['kelas'];  ?></td>
-                                <td><?= $row['status'];  ?></td>
-                                <td><?= $row['keterangan'];  ?></td>
+                                <td><?= $row['tanggal'] ?></td>
+                                <td><?= $row['nama_siswa'] ?></td>
+                                <td><?= $row['kelas'] ?></td>
+                                <td><?= $row['status'] ?></td>
+                                <td><?= $row['keterangan'] ?></td>
                                 <td>
                                     <a href="<?= base_url('kehadiran/view/' . $row['key_kehadiran']); ?>" class="btn btn-warning btn-xs"><i class="fas fa-edit"></i> Edit</a>
                                 </td>
                             </tr>
-                        <?php } ?>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>
