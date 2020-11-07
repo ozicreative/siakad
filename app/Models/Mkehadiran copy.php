@@ -58,33 +58,27 @@ class Mkehadiran extends Model
     {
         $siswa = $this->getDataSiswa($data["kelas_id"]);
 
+        $builder = "";
+        $this->db->transStart();
         foreach ($siswa as $row) {
             $this->db->query("INSERT INTO kehadiran (`key_kehadiran`,siswaid,kelasid,tanggal,`status`) 
             VALUES ('" . $nomer . "','" . $row["siswa_id"] . "','" . $data["kelas_id"] . "',
             STR_TO_DATE('" . $data["tanggal"] . "','%d%M,%Y'),'MASUK')");
+
+            if ($this->db->transStatus() === TRUE) {
+            } else {
+                $builder = "x";
+            }
         }
 
-        // $builder = "";
-        // $this->db->transStart();
-        // foreach ($siswa as $row) {
-        //     $this->db->query("INSERT INTO kehadiran (`key_kehadiran`,siswaid,kelasid,tanggal,`status`) 
-        //     VALUES ('" . $nomer . "','" . $row["siswa_id"] . "','" . $data["kelas_id"] . "',
-        //     STR_TO_DATE('" . $data["tanggal"] . "','%d%M,%Y'),'MASUK')");
+        if ($builder == "") {
+            $this->db->transCommit();
+            $res["status"] = "1";
+        } else {
+            $this->db->transRollback();
+            $res["status"] = "0";
+        }
 
-        //     if ($this->db->transStatus() === TRUE) {
-        //     } else {
-        //         $builder = "x";
-        //     }
-        // }
-
-        // if ($builder == "") {
-        //     $this->db->transCommit();
-        //     $res["status"] = "1";
-        // } else {
-        //     $this->db->transRollback();
-        //     $res["status"] = "0";
-        // }
-
-        // return $res;
+        return $res;
     }
 }

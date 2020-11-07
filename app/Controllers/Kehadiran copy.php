@@ -54,24 +54,16 @@ class Kehadiran extends BaseController
     {
         helper('text');
 
-        $data = $this->request->getPost();
+        $data = array(
+            'title' => 'Tambah Kehadiran',
+            'kelasid' => $this->request->getPost(),
+            'tanggal' => $this->request->getPost(),
+            'konten' => 'kehadiran/index'
+        );
+
         $nomer = random_string('allnum', 10);
 
         $this->Mkehadiran->generate($data, $nomer);
         return view('_partial/wrapper', $data);
-
-        // helper('text');
-
-        // $data = array(
-        //     'title' => 'Tambah Kehadiran',
-        //     'kelasid' => $this->request->getPost(),
-        //     'tanggal' => $this->request->getPost(),
-        //     'konten' => 'kehadiran/index'
-        // );
-
-        // $nomer = random_string('allnum', 10);
-
-        // $this->Mkehadiran->generate($data, $nomer);
-        // return view('_partial/wrapper', $data);
     }
 }

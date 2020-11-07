@@ -406,16 +406,16 @@
         },
         {
             "name": "fzaninotto/faker",
-            "version": "dev-master",
+            "version": "v1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "26c3c624bbfd3924e5a36a8c5a077a1fd7f167d3"
+                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/26c3c624bbfd3924e5a36a8c5a077a1fd7f167d3",
-                "reference": "26c3c624bbfd3924e5a36a8c5a077a1fd7f167d3",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/fc10d778e4b84d5bd315dad194661e091d307c6f",
+                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f",
                 "shasum": ""
             },
             "require": {
@@ -452,7 +452,8 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2020-10-23T12:58:11+00:00"
+            "abandoned": true,
+            "time": "2019-12-12T13:22:17+00:00"
         },
         {
             "name": "mikey179/vfsstream",

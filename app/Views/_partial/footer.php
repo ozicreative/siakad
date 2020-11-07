@@ -27,7 +27,7 @@
 <script src="<?php echo base_url('assets/template/plugins'); ?>/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?php echo base_url('assets/template/plugins'); ?>/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(document).ready(function() {
         $("#table1").DataTable({});
 
@@ -89,7 +89,7 @@
             }
         });
     });
-</script>
+</script> -->
 <!-- Alert -->
 <script>
     window.setTimeout(function() {
