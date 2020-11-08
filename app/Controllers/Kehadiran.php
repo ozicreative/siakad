@@ -51,45 +51,32 @@ class Kehadiran extends BaseController
     }
 
     public function generate()
-	{
-		$data = $this->input->post();
-		$nomer = uniqid('',$data["tanggal"]);
-		// $res = $this->mmaster->response("error",$guid);
+    {
+        helper('text');
 
-		$ret  = $this->mkehadiran->generate($data,$nomer);
-		
-		if ($ret["status"]==1){
-			// $res = $this->mmaster->response("success","Document generated successfully");
-			$res["responseCode"] = 200;
-			$res["responseMsg"]  = "Document generated successfully";
-			$res["key_kehadiran"] = $nomer;    
-		}elseif ($ret["status"]==2){
-			// $res = $this->mmaster->response("error","Siswa tidak ada di kelas tersebut");
-			$res["responseCode"] = 401;
-            $res["responseMsg"]  = "Siswa tidak ada di kelas tersebut";
-			$res["key_kehadiran"] = $nomer;    
-		}else{
-			// $res = $this->mmaster->response("error","Generate failed");
-			$res["responseCode"] = 401;
-            $res["responseMsg"]  = "Generate failed";
-			$res["key_kehadiran"] = $nomer;    
-		}
+        $nomer = random_string('allnum', 10);
 
-		echo json_encode($res);
-	}
+        $data = array(
+            'kelas_id' => $this->request->getVar(),
+            'tanggal' => $this->request->getVar()
+        );
+
+        $this->mkehadiran->tambah($data, $nomer);
+        return redirect()->to(base_url('kehadiran'));
+    }
 
     public function save()
-	{
-		$data = $this->input->post();
+    {
+        $data = $this->input->post();
 
-		$ret  = $this->mkehadiran->simpan($data);
-		
-		if ($ret["status"]==1){
-			$res = $this->mmaster->response("success","Document saved successfully");
-		}else{
-			$res = $this->mmaster->response("error","Save failed");
-		}
+        $ret  = $this->mkehadiran->simpan($data);
 
-		echo json_encode($res);
-	}
+        if ($ret["status"] == 1) {
+            $res = $this->mmaster->response("success", "Document saved successfully");
+        } else {
+            $res = $this->mmaster->response("error", "Save failed");
+        }
+
+        echo json_encode($res);
+    }
 }
