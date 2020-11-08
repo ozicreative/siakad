@@ -30,7 +30,7 @@
                             <tr>
                                 <td><?= $row['tanggal'] ?></td>
                                 <td><?= $row['nama_siswa'] ?></td>
-                                <td><?= $row['kelas'] ?></td>
+                                <td><?= $row['klas'] ?></td>
                                 <td><?= $row['status'] ?></td>
                                 <td><?= $row['keterangan'] ?></td>
                                 <td>

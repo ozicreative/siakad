@@ -27,9 +27,30 @@
 <script src="<?php echo base_url('assets/template/plugins'); ?>/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?php echo base_url('assets/template/plugins'); ?>/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function() {
-        $("#table1").DataTable({});
+        var table = $('#example').DataTable({
+            language: {
+                searchPlaceholder: 'Search',
+                sSearch: '',
+                sLengthMenu: 'Show _MENU_',
+                sLength: 'dataTables_length',
+                oPaginate: {
+                    sFirst: '<i class="material-icons">chevron_left</i>',
+                    sPrevious: '<i class="material-icons">chevron_left</i>',
+                    sNext: '<i class="material-icons">chevron_right</i>',
+                    sLast: '<i class="material-icons">chevron_right</i>'
+                }
+            },
+            columnDefs: [
+                {
+                    target: [0],
+                    visible: false,
+                    searchable: false
+                }
+            ]
+        });
+        $('.dataTables_length select').addClass('browser-default');
 
         $('[data-toggle="modal"]').tooltip()
 
@@ -45,7 +66,7 @@
             }, function(isConfirm) {
                 if (isConfirm) {
                     data = {
-                        'kelasid': $("#kelasid").val(),
+                        'kelas_id': $("#kelas_id").val(),
                         'tanggal': $("#tanggal").val()
                     };
                     console.log(data);
@@ -82,14 +103,14 @@
             });
         });
 
-        $('#table1 tbody').on('click', 'a', function() {
+        $('#example tbody').on('click', 'a', function() {
             var data = table.row($(this).parents('tr')).data();
             if ($(this).attr(nama_kelas) == "edit") {
                 location.href = "<?php echo base_url(); ?>kehadiran/view/" + data[0];
             }
         });
     });
-</script> -->
+</script>
 <!-- Alert -->
 <script>
     window.setTimeout(function() {
