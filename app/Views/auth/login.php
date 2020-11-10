@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= $title ?></title>
     <link rel="stylesheet" href="<?= base_url('assets/template/plugins/'); ?>/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets/template/plugins/'); ?>/fontawesome-free/css/fontawesome.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets/template/plugins/'); ?>/jquery/jquery.min.css">
     <link rel="stylesheet" href="<?php echo base_url('assets/template/plugins'); ?>/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="<?= base_url('assets/template/plugins/'); ?>/sweetalert2/sweetalert2.css">
 
     <style>
         body {
@@ -72,18 +73,24 @@
             width: 100%;
         }
 
+        .login-form input[type="checkbox"] {
+            position: relative;
+            top: 1px;
+        }
+
         .login-form .btn,
         .login-form .btn:active {
             font-size: 16px;
             font-weight: bold;
-            background: #70c5c0 !important;
+            background: #70c5c0;
             border: none;
             margin-bottom: 20px;
         }
 
         .login-form .btn:hover,
         .login-form .btn:focus {
-            background: #50b8b3 !important;
+            background: #50b8b3;
+            outline: none !important;
         }
 
         .login-form a {
@@ -103,10 +110,6 @@
         .login-form form a:hover {
             text-decoration: underline;
         }
-
-        .login-form .bottom-action {
-            font-size: 14px;
-        }
     </style>
 </head>
 
@@ -118,42 +121,60 @@
         <div class="avatar">
             <li style="font-size:63px;color:white;margin-left:6px" class="fa fa-user text-center"></li>
         </div>
-        <h2 class="text-center">Login</h2>
-        <div class="form-group">
+        <h2 class="text-center"><b>Form Login</b></h2>
 
-            <?php
-            $errors = session()->getFlashdata('errors');
-            if (!empty($errors)) {
-            ?>
-                <div class="alert alert-danger" role="alert">
-                    <ul>
-                        <?php foreach ($errors as $error) : ?>
-                            <li><?= esc($error) ?></li>
-                        <?php endforeach ?>
-                    </ul>
-                </div>
-            <?php } ?>
+        <?php
+        $errors = session()->getFlashdata('errors');
+        if (!empty($errors)) { ?>
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                    <?php foreach ($errors as $key => $value) { ?>
+                        <li><?= esc($value) ?></li>
+                    <?php } ?>
+                </ul>
+            </div>
+        <?php } ?>
 
-            <?php
-            if (session()->getFlashdata('pesan')) {
-                echo '<div class="alert alert-success" role="alert">';
-                echo session()->getFlashdata('pesan');
-                echo '</div>';
-            } ?>
+        <?php
+        if (session()->getFlashdata('pesan')) {
+            echo '<div class="alert alert-warning" role="alert">';
+            echo session()->getFlashdata('pesan');
+            echo '</div>';
+        }
+        if (session()->getFlashdata('sukses')) {
+            echo '<div class="alert alert-success" role="alert">';
+            echo session()->getFlashdata('sukses');
+            echo '</div>';
+        }
+        ?>
+
+        <div class="form-group">
+            <label for="">Username</label>
+            <input type="text" class="form-control" name="username" id="username" autofocus>
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" name="username" id="username" placeholder="Username" autofocus>
+            <label for="">Password</label>
+            <input type="password" class="form-control" name="password" id="password">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+            <label for="">Login sebagai</label>
+            <select name="level" class="form-control">
+                <option value="">-select-</option>
+                <option value="1">Root</option>
+                <option value="2">Admin</option>
+                <option value="3">Guru</option>
+                <option value="5">Member</option>
+            </select>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Enter</button>
         </div>
         <!-- <div class="bottom-action clearfix">
             <a href="#" class="float-right">Forgot Password?</a>
         </div> -->
-        <?php echo form_close(); ?>
+
+        <?php echo form_close() ?>
+
     </div>
 
     <!-- Script -->
@@ -162,6 +183,13 @@
     <script src="<?= base_url('assets/template/plugins/'); ?>/bootstrap/js/bootstrap.min.js"></script>
     <script src="<?= base_url('assets/template/plugins/'); ?>/sweetalert2/sweetalert2.min.js"></script>
     <!-- .End Script -->
+    <script>
+        window.setTimeout(function() {
+            $('.alert').fadeTo(500, 0).slideUp(500, function() {
+                $(this).remove();
+            });
+        }, 5000);
+    </script>
 </body>
 
 </html>

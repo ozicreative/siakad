@@ -16,7 +16,7 @@ class Auth extends BaseController
     public function index()
     {
         $data = array(
-            'title' => 'Login',
+            'title' => 'Login'
         );
         return view('auth/login', $data);
     }
@@ -28,33 +28,69 @@ class Auth extends BaseController
                 'label' => 'Username',
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} Harap isi bidang ini!!!'
+                    'required' => '{field} wajib diisi !'
                 ]
             ],
             'password' => [
                 'label' => 'Password',
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} Harap isi bidang ini!!!'
+                    'required' => '{field} wajib diisi !'
+                ]
+            ],
+            'level' => [
+                'label' => 'Level',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} wajib diisi !'
                 ]
             ],
         ])) {
+            //Jika valid
             $username = $this->request->getPost('username');
             $password = $this->request->getPost('password');
-            $cek = $this->Mauth->login($username, $password);
-            if ($cek) {
-                session()->set('log', true);
-                session()->set('nama_user', $cek['nama_user']);
-                session()->set('username', $cek['username']);
-                session()->set('level', $cek['level']);
+            $level = $this->request->getPost('level');
 
-                return redirect()->to(base_url('dashboard'));
-            } else {
-                session()->setFlashdata('pesan','Login gagal !!!');
-                return redirect()->to(base_url('auth/login'));
+            if ($level == 1) {
+                $cek_user = $this->Mauth->login_user($username, $password);
+                if ($cek_user) {
+                    // jika benar
+                    session()->set('log', true);
+                    session()->set('username', $cek_user['username']);
+                    session()->set('nama', $cek_user['nama_user']);
+                    session()->set('img', $cek_user['img']);
+                    session()->set('level', $level);
+
+                    return redirect()->to(base_url('dashboard'));
+                } else {
+                    // jika salah
+                    session()->setFlashdata('pesan', 'Login Gagal, Username atau Password salah !');
+
+                    return redirect()->to(base_url('auth'));
+                }
+            } elseif ($level == 2) {
+                echo 'Admin';
+            } elseif ($level == 3) {
+                echo 'Guru';
+            } elseif ($level == 5) {
+                echo 'Member';
             }
         } else {
-            # code...
+            //Jika tdk valid
+            session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('auth'));
         }
+    }
+
+    public function logout()
+    {
+        session()->remove('log');
+        session()->remove('username');
+        session()->remove('nama');
+        session()->remove('img');
+        session()->remove('level');
+
+        session()->setFlashdata('sukses', 'Logout berhasil');
+        return redirect()->to(base_url('auth'));
     }
 }
