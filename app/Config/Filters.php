@@ -12,15 +12,29 @@ class Filters extends BaseConfig
 		'csrf'     => \CodeIgniter\Filters\CSRF::class,
 		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
 		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
+		'fauth' => \App\Filters\Fauth::class,
 	];
 
 	// Always applied before every request
 	public $globals = [
 		'before' => [
+			'fauth' => ['except' =>[
+				'auth', 'auth/*',
+			]]
 			// 'honeypot',
 			// 'csrf',
 		],
 		'after'  => [
+			'fauth' => ['except' =>[
+				'dashboard',
+				'guru', 'guru/*',
+				'jadwal', 'jadwal/*',
+				'kehadiran', 'kehadiran/*',
+				'kelas', 'kelas/*',
+				'nilai', 'nilai/*',
+				'pelajaran', 'pelajaran/*',
+				'siswa', 'siswa/*',
+			]],
 			'toolbar',
 			//'honeypot'
 		],
