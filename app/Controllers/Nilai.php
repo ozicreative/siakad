@@ -23,7 +23,7 @@ class Nilai extends BaseController
             'title' => 'Daftar Nilai Siswa',
             'datakelas' => $this->Mjadwal->getKelas(),
             'datamapel' => $this->Mpelajaran->getData(),
-            'datagride' => $this->Mnilai->getData(),
+            'datagrid' => $this->Mnilai->getData(),
             'konten' => 'nilai/index'
         ];
         return view('_partial/wrapper', $data);

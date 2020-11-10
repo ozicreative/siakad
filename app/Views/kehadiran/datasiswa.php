@@ -21,7 +21,7 @@
                             <th>Kelas</th>
                             <th>Status</th>
                             <th>Keterangan</th>
-                            <th width="22%">Aksi</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

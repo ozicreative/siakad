@@ -3,7 +3,7 @@
         <div class="card card-info card-outline">
             <div class="card-header">
                 <div class="card-tools float-right">
-                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal1"><i class="fa fa-plus"></i> <b>New Data</b></button>
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#add"><i class="fa fa-plus"></i> <b>New Data</b></button>
                 </div>
             </div>
             <div class=" card-body">
@@ -16,7 +16,7 @@
                 }
                 ?>
 
-                <table class="table table-bordered" id="example">
+                <table class="table table-bordered" id="table1">
                     <thead>
                         <tr>
                             <th>Tanggal</th>
@@ -50,9 +50,8 @@
         </div>
     </div>
 </div>
-</div>
-<!-- Modal -->
-<div id="modal1" class="modal fade">
+<!-- Modal add-->
+<div id="add" class="modal fade">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -87,4 +86,4 @@
         </div>
     </div>
 </div>
-<!-- End Modal -->
+<!-- End Modal add-->

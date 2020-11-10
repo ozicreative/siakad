@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Models\Mkehadiran;
 use App\Models\Mjadwal;
-use phpDocumentor\Reflection\Types\This;
 
 class Kehadiran extends BaseController
 {
@@ -24,15 +23,6 @@ class Kehadiran extends BaseController
         $data["konten"] = "kehadiran/index";
 
         return view('_partial/wrapper', $data);
-
-        // $data = array(
-        //     'title' => 'Daftar Kehadiran',
-        //     'kehadiran' => $this->Mkehadiran->getAll(),
-        //     'kelas' => $this->Mjadwal->getKelas(),
-        //     'tbl_active' => $this->Mactive->getData(),
-        //     'konten' => 'kehadiran/index'
-        // );
-        // return view('_partial/wrapper', $data);
     }
 
     public function view($nomer)
@@ -42,13 +32,6 @@ class Kehadiran extends BaseController
         $data["konten"] = "kehadiran/datasiswa";
 
         return view('_partial/wrapper', $data);
-
-        // $data = array(
-        //     'title' => 'Data Kehadiran Siswa',
-        //     'kehadiran' => $this->Mkehadiran->getData($nomer),
-        //     'konten' => 'kehadiran/datasiswa'
-        // );
-        // return view('_partial/wrapper', $data);
     }
 
     public function generate()
@@ -77,16 +60,5 @@ class Kehadiran extends BaseController
         $this->Mkehadiran->ubah($data);
         session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
         return redirect()->back();
-        // $data = $this->input->post();
-
-        // $ret  = $this->mkehadiran->simpan($data);
-
-        // if ($ret["status"] == 1) {
-        //     $res = $this->mmaster->response("success", "Document saved successfully");
-        // } else {
-        //     $res = $this->mmaster->response("error", "Save failed");
-        // }
-
-        // echo json_encode($res);
     }
 }

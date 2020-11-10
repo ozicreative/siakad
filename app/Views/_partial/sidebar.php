@@ -96,7 +96,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?php echo base_url('nilai'); ?>" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>Nilai</p>
             </a>

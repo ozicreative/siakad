@@ -24,7 +24,7 @@ class Mkehadiran extends Model
 
     public function getData($nomer)
     {
-        $builder = $this->db->query("SELECT t1.id_kehadiran,t1.key_kehadiran,t1.`status`,t2.`nama_siswa`,t3.`lvl_kelas`,t3.`nama_kelas` klas,
+        $builder = $this->db->query("SELECT t1.id_kehadiran,t1.key_kehadiran,t1.`status`,t2.`nama_siswa`, concat(t3.lvl_kelas,' - ',t3.`nama_kelas`) klas,
                                     DATE_FORMAT(t1.tanggal,'%d-%m-%Y') tanggal,t1.keterangan 
 									FROM kehadiran t1
 									JOIN siswa t2 ON t1.siswa_id=t2.id_siswa
@@ -86,19 +86,5 @@ class Mkehadiran extends Model
         $this->db->table('kehadiran')
         ->where('id_kehadiran', $data['id_kehadiran'])
         ->update($data);
-        // $this->db->transStart();
-
-        // $this->db->query("UPDATE kehadiran SET status='" . $data["status"] . "',keterangan='" . $data["keterangan"] . "'
-        // 					WHERE siswa_id ='" . $data["id_siswa"] . "'");
-
-        // if ($this->db->transStatus() === TRUE) {
-        //     $this->db->transCommit();
-        //     $res["status"] = "1";
-        // } else {
-        //     $this->db->transRollback();
-        //     $res["status"] = "0";
-        // }
-
-        // return $res;
     }
 }
