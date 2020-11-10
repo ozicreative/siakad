@@ -71,7 +71,7 @@
                     </div>
                     <!-- </form> -->
                     <div class="modal-footer">
-                        <a href="kehadiran/generate" id="btn_submit" class=" modal-action modal-close waves-effect waves-green btn-flat">Generate</a>
+                    <button type="submit" class="btn btn-info">Generate</button>
                     </div>
                     <?php echo form_close() ?>
                 </div>

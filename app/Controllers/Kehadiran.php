@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Mkehadiran;
 use App\Models\Mjadwal;
+use phpDocumentor\Reflection\Types\This;
 
 class Kehadiran extends BaseController
 {
@@ -54,15 +55,14 @@ class Kehadiran extends BaseController
     {
         helper('text');
 
-        $nomer = random_string('allnum', 10);
+        $data = [
+            'kelas_id' => $this->request->getPost('kelas_id'),
+            'tanggal' => $this->request->getPost('tanggal')
+        ];
+        $nomer = uniqid('allnum', $data["tanggal"]);
 
-        $data = array(
-            'kelas_id' => $this->request->getVar(),
-            'tanggal' => $this->request->getVar()
-        );
-
-        $this->mkehadiran->tambah($data, $nomer);
-        return redirect()->to(base_url('kehadiran'));
+        dd($this->Mkehadiran->generate($data, $nomer));
+        //return redirect()->to(base_url('kehadiran'));
     }
 
     public function save()

@@ -54,39 +54,31 @@ class Mkehadiran extends Model
         return $query->getResultArray();
     }
 
-    public function tambah($data, $nomer)
+    public function generate($data, $nomer)
     {
         $siswa = $this->getDataSiswa($data["kelas_id"]);
+
+        $query = "";
+        $this->db->transStart();
         foreach ($siswa as $row) {
             $this->db->query("INSERT INTO kehadiran (`key_kehadiran`,siswa_id,kelas_id,tanggal,`status`) 
-            VALUES ('" . $nomer . "','" . $row["siswa_id"] . "','" . $data["kelas_id"] . "',
-            STR_TO_DATE('" . $data["tanggal"] . "','%d%M,%Y'),'MASUK')");
+            VALUES ('" . $nomer . "','" . $row["siswa_id"] . "','" . $data["kelas_id"] . "','" . $data["tanggal"] . "','MASUK')");
+
+            if ($this->db->transStatus() === TRUE) {
+            } else {
+                $query = "x";
+            }
         }
-        $this->db->table('kehadiran')->insert($data, $nomer);
-        // $siswa = $this->getDataSiswa($data["kelas_id"]);
 
-        // $query = "";
-        // $this->db->transStart();
-        // foreach ($siswa as $row) {
-        //     $this->db->query("INSERT INTO kehadiran (`key_kehadiran`,siswa_id,kelas_id,tanggal,`status`) 
-        //     VALUES ('" . $nomer . "','" . $row["siswa_id"] . "','" . $data["kelas_id"] . "',
-        //     STR_TO_DATE('" . $data["tanggal"] . "','%d%M,%Y'),'MASUK')");
+        if ($query == "") {
+            $this->db->transCommit();
+            $res["status"] = "1";
+        } else {
+            $this->db->transRollback();
+            $res["status"] = "0";
+        }
 
-        //     if ($this->db->transStatus() === TRUE) {
-        //     } else {
-        //         $query = "x";
-        //     }
-        // }
-
-        // if ($query == "") {
-        //     $this->db->transCommit();
-        //     $res["status"] = "1";
-        // } else {
-        //     $this->db->transRollback();
-        //     $res["status"] = "0";
-        // }
-
-        // return $res;
+        return $res;
     }
 
     public function simpan($data)
