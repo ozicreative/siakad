@@ -59,24 +59,34 @@ class Kehadiran extends BaseController
             'kelas_id' => $this->request->getPost('kelas_id'),
             'tanggal' => $this->request->getPost('tanggal')
         ];
-        $nomer = uniqid('allnum', $data["tanggal"]);
+        $nomer = uniqid();
 
-        dd($this->Mkehadiran->generate($data, $nomer));
-        //return redirect()->to(base_url('kehadiran'));
+        $this->Mkehadiran->generate($data, $nomer);
+        session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
+        return redirect()->to(base_url('kehadiran'));
     }
 
-    public function save()
+    public function edit($id)
     {
-        $data = $this->input->post();
+        $data = array(
+            'id_kehadiran' => $id,
+            'status' => $this->request->getPost('status'),
+            'keterangan' => $this->request->getPost('keterangan'),
+        );
 
-        $ret  = $this->mkehadiran->simpan($data);
+        $this->Mkehadiran->ubah($data);
+        session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
+        return redirect()->back();
+        // $data = $this->input->post();
 
-        if ($ret["status"] == 1) {
-            $res = $this->mmaster->response("success", "Document saved successfully");
-        } else {
-            $res = $this->mmaster->response("error", "Save failed");
-        }
+        // $ret  = $this->mkehadiran->simpan($data);
 
-        echo json_encode($res);
+        // if ($ret["status"] == 1) {
+        //     $res = $this->mmaster->response("success", "Document saved successfully");
+        // } else {
+        //     $res = $this->mmaster->response("error", "Save failed");
+        // }
+
+        // echo json_encode($res);
     }
 }

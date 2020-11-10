@@ -81,8 +81,11 @@ class Mkehadiran extends Model
         return $res;
     }
 
-    public function simpan($data)
+    public function ubah($data)
     {
+        $this->db->table('kehadiran')
+        ->where('id_kehadiran', $data['id_kehadiran'])
+        ->update($data);
         // $this->db->transStart();
 
         // $this->db->query("UPDATE kehadiran SET status='" . $data["status"] . "',keterangan='" . $data["keterangan"] . "'
