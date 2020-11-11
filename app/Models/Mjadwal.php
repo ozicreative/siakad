@@ -29,6 +29,14 @@ class Mjadwal extends Model
         return $builder->getResultArray();
     }
 
+    public function getPelajaran()
+    {
+        $query = $this->db->query("SELECT b.id_pelajaran, b.`nama_pelajaran`
+									FROM pelajaran b
+									WHERE b.active='1' ORDER BY b.`nama_pelajaran`");
+        return $query->getResultArray();
+    }
+
     public function tambah($data)
     {
         $this->db->table('jadwal')->insert($data);

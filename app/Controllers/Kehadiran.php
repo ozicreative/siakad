@@ -58,7 +58,7 @@ class Kehadiran extends BaseController
         );
 
         $this->Mkehadiran->ubah($data);
-        session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
+        session()->setFlashdata('pesan', 'Data berhasil diubah.');
         return redirect()->back();
     }
 }

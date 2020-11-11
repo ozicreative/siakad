@@ -10,9 +10,16 @@ class Mpelajaran extends Model
     public function getData()
     {
         return $this->db->table('pelajaran')
-        ->join('tbl_active','tbl_active.id_active = pelajaran.active','Left')
-        ->get()
-        ->getResultArray();
+            ->join('tbl_active', 'tbl_active.id_active = pelajaran.active', 'Left')
+            ->get()
+            ->getResultArray();
+    }
+
+    function getAll()
+    {
+        $query = $this->db->query("SELECT id_pelajaran,nama_pelajaran FROM pelajaran WHERE active='1' ORDER BY nama_pelajaran ASC");
+        
+        return $query->getResultArray();
     }
 
     public function tambah($data)

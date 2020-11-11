@@ -31,11 +31,11 @@
                         foreach ($datagrid as $row) : ?>
                             <tr>
                                 <td><?= $row['tanggal']; ?></td>
-                                <td><?= $row['tanggal']; ?></td>
+                                <td><?= $row['nama_kelas']; ?></td>
+                                <td><?= $row['pelajaran']; ?></td>
+                                <td><?= $row['jenis']; ?></td>
                                 <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit<?= $row['id_nilai']; ?>"><i class="fas fa-edit"></i> Edit</button>
-                                    </div>
+                                    <a href="<?= base_url('nilai/view/' . $row['key_nilai']); ?>" class="btn btn-info btn-xs"><i class="fas fa-eye"></i> Lihat</a>
                                 </td>
                             </tr>
                         <?php endforeach ?>
@@ -50,12 +50,11 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Buat Kehadiran</h4>
+                <h4 class="modal-title">Buat Nilai</h4>
             </div>
             <div class="modal-body">
 
-                <?php echo form_open('kehadiran/generate') ?>
-                <!-- <form class="form-horizontal" role="form" method="post" id="myform"> -->
+                <?php echo form_open('nilai/generate') ?>
 
                 <div class="form-group row">
                     <div class="form-group col-lg-6">
@@ -72,7 +71,26 @@
                         <input id="tanggal" name="tanggal" type="date" class="form-control">
                     </div>
                 </div>
-                <!-- </form> -->
+                <div class="form-group row">
+                    <div class="form-group col-lg-6">
+                        <label for="pelajaran_id">Pelajaran</label>
+                        <select id="pelajaran_id" name="pelajaran_id" class="form-control">
+                            <option>- pilih pelajaran -</option>
+                            <?php foreach ($datamapel as $row) : ?>
+                                <option value="<?= $row['id_pelajaran'] ?>"><?= $row['nama_pelajaran'] ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="jenis">Jenis Ujian</label>
+                        <select name="jenis" class="form-control">
+                            <option>-pilih-</option>
+                            <option value="UTS">UTS</option>
+                            <option value="UAS">UAS</option>
+                            <option value="Praktek">Praktek</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-info">Generate</button>
                 </div>
@@ -82,41 +100,3 @@
     </div>
 </div>
 <!-- End Modal add-->
-<!-- /.modal Edit-->
-<?php foreach ($datagrid as $row) : ?>
-    <div class="modal fade" id="edit<?= $row['id_nilai']; ?>">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Edit Kehadiran Siswa</h4>
-                </div>
-                <div class="modal-body">
-                    <?php
-                    echo form_open('kehadiran/edit/' . $row['id_nilai'])
-                    ?>
-
-                    <div class="form-group">
-                        <label>Status</label>
-                        <select name="status" class="form-control">
-                            <option value="MASUK" <?php echo ($row['status'] == 1) ? 'selected' : ''; ?>>Masuk</option>
-                            <option value="ALPHA" <?php echo ($row['status'] == 2) ? 'selected' : ''; ?>>Alpha</option>
-                            <option value="SAKIT" <?php echo ($row['status'] == 3) ? 'selected' : ''; ?>>Sakit</option>
-                            <option value="IJIN" <?php echo ($row['status'] == 4) ? 'selected' : ''; ?>>Ijin</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Keterangan</label>
-                        <input name="keterangan" value="<?= $row['keterangan']; ?>" class="form-control">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Update</button>
-                </div>
-                <?php echo form_close() ?>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-<?php endforeach ?>
-<!-- /.End modal Edit-->
