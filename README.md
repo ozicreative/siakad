@@ -1,8 +1,2 @@
-# Readme
-1.Extra projek ke folder C:Xampp/htdocs/extra disini.
-#
-2.Rename file 'envcopy' yang ada di didalam root folder project jadi '.env'.
-#
-3.Buat database dengan nama 'smk'.
-#
-4.Selanjutnya buka web 'localhost/siakad/public'.
+# Program Siakad
+![iu](https://user-images.githubusercontent.com/37220904/98753802-c8f00700-23f7-11eb-9a1a-cb791abd6e43.jpg)
