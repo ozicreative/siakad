@@ -37,6 +37,12 @@ class Mjadwal extends Model
         return $query->getResultArray();
     }
 
+    function getGuru(){
+		$query = $this->db->query("SELECT t1.id_guru, t1.`nama_guru` FROM guru t1
+                                    WHERE t1.active='1' ORDER BY t1.`nama_guru`");
+		return $query->getResultArray();
+    }
+
     public function tambah($data)
     {
         $this->db->table('jadwal')->insert($data);

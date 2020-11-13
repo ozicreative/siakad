@@ -102,13 +102,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?php echo base_url('kbm'); ?>" class="nav-link">
               <i class="nav-icon fas fa-calendar-alt"></i>
               <p>KBM</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?php echo base_url('rapor'); ?>" class="nav-link">
               <i class="nav-icon fas fa-award"></i>
               <p>Rapor</p>
             </a>
