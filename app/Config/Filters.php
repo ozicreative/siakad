@@ -35,6 +35,7 @@ class Filters extends BaseConfig
 				'pelajaran', 'pelajaran/*',
 				'siswa', 'siswa/*',
 				'kbm', 'kbm/*',
+				'rapor', 'rapor/*',
 			]],
 			'toolbar',
 			//'honeypot'

@@ -3,7 +3,6 @@
         <div class="card card-info card-outline">
             <div class="card-header">
                 <div class="card-tools float-right">
-                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#"><i class="fa fa-plus"></i> <b>Export Data</b></button>
                     <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#add"><i class="fa fa-plus"></i> <b>Tambah Data</b></button>
                 </div>
             </div>
