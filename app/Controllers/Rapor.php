@@ -26,14 +26,15 @@ class Rapor extends BaseController
         $ret = $this->Mrapor->getDataNilai($id);
         $retkh = $this->Mrapor->getDataKehadiran($id);
 
-        if ($ret->num_row() > 0) {
+        if ($ret->countAll() > 0) {
             $ret = $ret->result_array();
             $data["kelas"] = $ret[0]["kelas"];
             $data["nama"] = $ret[0]["nama"];
             $data["periode"] = $ret[0]["periode"];
+
             $data["rapor"] = $ret;
 
-            if ($retkh->num_row() > 0) {
+            if ($retkh->countAll() > 0) {
                 $retkh = $retkh->result_array();
                 $data["absensi"] = $retkh;
             }
