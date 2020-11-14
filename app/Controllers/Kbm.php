@@ -49,9 +49,9 @@ class Kbm extends BaseController
             'id_kbm' => $id,
             'jadwal_id' => $this->request->getPost('jadwal_id'),
             'tanggal' => $this->request->getPost('tanggal'),
+            'materi' => $this->request->getPost('materi'),
             't_hadir' => $this->request->getPost('hadir'),
             't_tdkhadir' => $this->request->getPost('tdkhadir'),
-            'materi' => $this->request->getPost('materi'),
             'active' => '1'
         );
         $this->Mkbm->ubah($data);

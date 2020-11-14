@@ -36,8 +36,8 @@
                                 <td><?= $value['t_hadir'] ?>/<?= $value['t_tdkhadir'] ?></td>
                                 <td>
                                     <div class="btn-group">
-                                        <button class="btn btn-warning btn-xs btn-edit" data-toggle="modal" data-target="#edit<?= $value['id_kbm']; ?>"><i class="fas fa-edit"></i> Edit</button>
-                                        <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete<?= $value['id_kbm']; ?>"><i class="fas fa-trash-alt"></i> Hapus</button>
+                                        <button class="btn btn-warning btn-xs btn-edit" data-toggle="modal" data-target="#edit<?= $value['id_kbm'] ?>"><i class="fas fa-edit"></i> Edit</button>
+                                        <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete<?= $value['id_kbm'] ?>"><i class="fas fa-trash-alt"></i> Hapus</button>
                                     </div>
                                 </td>
                             </tr>
@@ -103,7 +103,7 @@
 
 <!-- /.Modal Edit -->
 <?php foreach ($datagrid as $key => $value) { ?>
-    <div class="modal fade" id="edit<?= $value['id_kbm']; ?>">
+    <div class="modal fade" id="edit<?= $value['id_kbm'] ?>">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -111,7 +111,7 @@
                 </div>
                 <div class="modal-body">
                     <?php
-                    echo form_open('kbm/edit' . $value['id_kbm'])
+                    echo form_open('kbm/edit/' . $value['id_kbm'])
                     ?>
 
                     <div class="form-group row">
@@ -129,21 +129,21 @@
                     <div class="form-group row">
                         <div class="form-group col-lg-6">
                             <label>Tanggal</label>
-                            <input type="date" value="<?= $value['tanggal']; ?>" name="tanggal" class="form-control">
+                            <input type="date" value="<?= $value['tanggal'] ?>" name="tanggal" class="form-control">
                         </div>
                         <div class="form-group col-lg-3">
                             <label>Siswa Hadir</label>
-                            <input type="number" value="<?= $value['t_hadir']; ?>" name="hadir" class="form-control">
+                            <input type="number" value="<?= $value['t_hadir'] ?>" name="hadir" class="form-control">
                         </div>
                         <div class="form-group col-lg-3">
                             <label>Tidak Hadir</label>
-                            <input type="number" value="<?= $value['t_tdkhadir']; ?>" name="tdkhadir" class="form-control">
+                            <input type="number" value="<?= $value['t_tdkhadir'] ?>" name="tdkhadir" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="form-group col-lg-8">
                             <label>Materi</label>
-                            <input type="text" value="<?= $value['materi']; ?>" name="materi" class="form-control">
+                            <input type="text" value="<?= $value['materi'] ?>" name="materi" class="form-control">
                         </div>
                     </div>
                 </div>
