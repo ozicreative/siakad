@@ -36,6 +36,7 @@ class Filters extends BaseConfig
 				'siswa', 'siswa/*',
 				'kbm', 'kbm/*',
 				'rapor', 'rapor/*',
+				'user', 'user/*',
 			]],
 			'toolbar',
 			//'honeypot'

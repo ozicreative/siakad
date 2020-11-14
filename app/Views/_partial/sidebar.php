@@ -76,7 +76,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?php echo base_url('user'); ?>" class="nav-link">
                   <i class="fas fa-bookmark nav-icon"></i>
                   <p>User</p>
                 </a>
