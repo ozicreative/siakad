@@ -51,7 +51,8 @@ class Kbm extends BaseController
             'tanggal' => $this->request->getPost('tanggal'),
             't_hadir' => $this->request->getPost('hadir'),
             't_tdkhadir' => $this->request->getPost('tdkhadir'),
-            'materi' => $this->request->getPost('materi')
+            'materi' => $this->request->getPost('materi'),
+            'active' => '1'
         );
         $this->Mkbm->ubah($data);
         session()->setFlashdata('pesan', 'Data berhasil diubah.');

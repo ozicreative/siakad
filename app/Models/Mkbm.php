@@ -6,8 +6,8 @@ use CodeIgniter\Model;
 
 class Mkbm extends Model
 {
-    
-    function getAll()
+
+    public function getAll()
     {
         $query = $this->db->query("SELECT a.id_kbm,a.jadwal_id, b.hari, CONCAT(c.lvl_kelas,' - ',c.`nama_kelas`) kelas, d.`nama_pelajaran` pelajaran, e.`nama_guru` guru
                                         ,a.tanggal, a.materi, a.t_hadir, a.t_tdkhadir
@@ -20,7 +20,7 @@ class Mkbm extends Model
         return $query->getResultArray();
     }
 
-    function getJadwal()
+    public function getJadwal()
     {
         $query = $this->db->query("SELECT b.id_jadwal, CONCAT(b.hari,' / ',e.`nama_guru`,' / ',c.lvl_kelas,' - ',c.`nama_kelas`,' / ',d.`nama_pelajaran`) `pelajaran`
                                         FROM jadwal b

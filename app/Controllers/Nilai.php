@@ -20,7 +20,6 @@ class Nilai extends BaseController
         $data["title"] = 'Daftar Nilai';
         $data["datakelas"] = $this->Mjadwal->getKelas();
         $data["datamapel"] = $this->Mjadwal->getPelajaran($data["datakelas"][0]["id_kelas"]);
-        //$data["datamapel"] = $this->Mnilai->getPelajaran();
         $data["datagrid"] = $this->Mnilai->getAll();
         $data["konten"] = "nilai/index";
 

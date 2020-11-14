@@ -43,6 +43,7 @@ $routes->get('kelas/', 'Kelas::index');
 $routes->get('pelajaran/', 'Pelajaran::index');
 $routes->get('jadwal/', 'Jadwal::index');
 $routes->get('kehadiran/', 'Kehadiran::index');
+$routes->get('kbm/', 'Kbm::index');
 /**
  * --------------------------------------------------------------------
  * Additional Routing

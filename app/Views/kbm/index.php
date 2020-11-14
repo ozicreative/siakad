@@ -102,7 +102,7 @@
 <!-- /.End modal Add-->
 
 <!-- /.Modal Edit -->
-<?php foreach ($datagrid as $key => $value) : ?>
+<?php foreach ($datagrid as $key => $value) { ?>
     <div class="modal fade" id="edit<?= $value['id_kbm']; ?>">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -140,9 +140,11 @@
                             <input type="number" value="<?= $value['t_tdkhadir']; ?>" name="tdkhadir" class="form-control">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label>Materi</label>
-                        <input type="text" value="<?= $value['materi']; ?>" name="materi" class="form-control">
+                    <div class="form-group row">
+                        <div class="form-group col-lg-8">
+                            <label>Materi</label>
+                            <input type="text" value="<?= $value['materi']; ?>" name="materi" class="form-control">
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -154,4 +156,4 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
-<?php endforeach ?>
+<?php } ?>
