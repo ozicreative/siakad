@@ -122,8 +122,8 @@
 
 <!-- /.modal Edit-->
 <?php foreach ($user as $key => $value) { ?>
-    <div class="modal fade" id="edit<?= $value['id_siswa']; ?>">
-        <div class="modal-dialog">
+    <div class="modal fade" id="edit<?= $value['id_user']; ?>">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Edit User</h4>
@@ -131,23 +131,37 @@
                 <div class="modal-body">
 
                     <?php
-                    echo form_open('user/edit/' . $value['id_siswa'])
+                    echo form_open('user/edit/' . $value['id_user'])
                     ?>
 
-                    <div class="form-group">
-                        <label>Nama</label>
-                        <input name="nama_user" value="<?= $value['nama_user']; ?>" class="form-control">
+                    <div class="form-group row">
+                        <div class="form-group col-lg-6">
+                            <label>Nama</label>
+                            <input name="nama_user" value="<?= $value['nama_user']; ?>" class="form-control">
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>Email</label>
+                            <input name="email" value="<?= $value['email']; ?>" class="form-control">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input name="email" value="<?= $value['email']; ?>" class="form-control">
+                    <div class="form-group row">
+                        <div class="form-group col-lg-6">
+                            <label>Username</label>
+                            <input name="username" value="<?= $value['username']; ?>" class="form-control">
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>Password</label>
+                            <input name="password" value="<?= $value['password']; ?>" class="form-control">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Status</label>
-                        <select name="active" class="form-control">
-                            <option value="1" <?php echo ($value['active'] == 1) ? 'selected' : ''; ?>>Active</option>
-                            <option value="2" <?php echo ($value['active'] == 2) ? 'selected' : ''; ?>>Nonactive</option>
-                        </select>
+                    <div class="form-group row">
+                        <div class="form-group col-lg-6">
+                            <label>Foto</label>
+                            <input name="img" value="<?= $value['img']; ?>" class="form-control">
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>Level</label>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -163,18 +177,18 @@
 <!-- /.End modal Edit-->
 
 <!-- /.modal Delete-->
-<?php foreach ($kelas as $key => $value) { ?>
-    <div class="modal fade" id="delete<?= $value['id_kelas']; ?>">
+<?php foreach ($user as $key => $value) { ?>
+    <div class="modal fade" id="delete<?= $value['id_user']; ?>">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Hapus Kelas</h4>
+                    <h4 class="modal-title">Hapus User</h4>
                 </div>
                 <div class="modal-body">
-                    <h4>Yakin ingin menghapus data <b><?= $value['nama_kelas']; ?></b>...?</h4>
+                    <h4>Yakin ingin menghapus data <b><?= $value['nama_user']; ?></b>...?</h4>
                 </div>
                 <div class="modal-footer">
-                    <a href="<?= base_url('kelas/delete/' . $value['id_kelas']) ?>" type="submit" class="btn btn-danger">Confirm</a>
+                    <a href="<?= base_url('user/delete/' . $value['id_user']) ?>" type="submit" class="btn btn-danger">Confirm</a>
                 </div>
             </div>
             <!-- /.modal-content -->
