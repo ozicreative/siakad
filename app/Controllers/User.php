@@ -41,7 +41,7 @@ class User extends BaseController
     public function edit($id)
     {
         $data = array(
-            'id-user' => $id,
+            'id_user' => $id,
             'nama_user' => $this->request->getPost('nama_user'),
             'email' => $this->request->getPost('email'),
             'username' => $this->request->getPost('username'),

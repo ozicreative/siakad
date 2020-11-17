@@ -161,7 +161,23 @@
                         </div>
                         <div class="form-group col-lg-6">
                             <label>Level</label>
-                            <input type="text" name="level" id="level" class="form-control" value="<?= $value['level'] ?>" readonly>
+                            <select name="level" id="level" class="form-control" aria-readonly="true">
+<option value=""></option>
+                            </select>
+                            <input type="text" name="level" id="level" class="form-control" value="
+                            <?php if ($value['level'] == 1) {
+                                echo 'Root';
+                            } elseif ($value['level'] == 2) {
+                                echo 'Admin';
+                            } elseif ($value['level'] == 3) {
+                                echo 'Guru';
+                            } elseif ($value['level'] == 4) {
+                                echo 'Kepala Sekolah';
+                            } elseif ($value['level'] == 5) {
+                                echo 'Wali Siswa';
+                            } elseif ($value['level'] == 6) {
+                                echo 'Siswa';
+                            } ?>" readonly>
                         </div>
                     </div>
                 </div>
