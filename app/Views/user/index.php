@@ -99,7 +99,7 @@
                 <div class="form-group row">
                     <div class="form-group col-lg-6">
                         <label>Level</label>
-                        <select name="gender" id="gender" class="form-control" required>
+                        <select name="level" id="level" class="form-control" required>
                             <option>-level-</option>
                             <option value="3">Guru</option>
                             <option value="4">Kepala Sekolah</option>
@@ -161,6 +161,7 @@
                         </div>
                         <div class="form-group col-lg-6">
                             <label>Level</label>
+                            <input type="text" name="level" id="level" class="form-control" value="<?= $value['level'] ?>" readonly>
                         </div>
                     </div>
                 </div>
