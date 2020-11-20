@@ -34,7 +34,7 @@ class User extends BaseController
             'active' => '1'
         );
         $this->Muser->tambah($data);
-        session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
+        session()->setFlashdata('pesan', 'User baru berhasil ditambahkan.');
         return redirect()->to(base_url('user'));
     }
 
@@ -51,7 +51,7 @@ class User extends BaseController
             'active' => $this->request->getPost('active')
         );
         $this->Muser->ubah($data);
-        session()->setFlashdata('pesan', 'Data berhasil diubah.');
+        session()->setFlashdata('pesan', 'User berhasil diubah.');
         return redirect()->to(base_url('user'));
     }
 
@@ -61,7 +61,7 @@ class User extends BaseController
             'id_user' => $id,
         );
         $this->Muser->hapus($data);
-        session()->setFlashdata('pesan', 'Data berhasil dihapus.');
+        session()->setFlashdata('pesan', 'User berhasil dihapus.');
         return redirect()->to(base_url('user'));
     }
 }
