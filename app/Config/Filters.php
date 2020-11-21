@@ -12,30 +12,43 @@ class Filters extends BaseConfig
 		'csrf'     => \CodeIgniter\Filters\CSRF::class,
 		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
 		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
-		'fauth' => \App\Filters\Fauth::class,
+		'fit' => \App\Filters\Fit::class,
+		'fadmin' => \App\Filters\Fadmin::class,
 	];
 
 	// Always applied before every request
 	public $globals = [
 		'before' => [
-			'fauth' => ['except' =>[
+			'fit' => ['except' => [
+				'auth', 'auth/*',
+			]],
+			'fadmin' => ['except' => [
 				'auth', 'auth/*',
 			]]
 			// 'honeypot',
 			// 'csrf',
 		],
 		'after'  => [
-			'fauth' => ['except' =>[
+			'fit' => ['except' => [
 				'dashboard',
 				'guru', 'guru/*',
-				'jadwal', 'jadwal/*',
-				'kehadiran', 'kehadiran/*',
-				'kelas', 'kelas/*',
-				'nilai', 'nilai/*',
-				'pelajaran', 'pelajaran/*',
 				'siswa', 'siswa/*',
+				'kelas', 'kelas/*',
+				'pelajaran', 'pelajaran/*',
+				'jadwal', 'jadwal/*',
+				'user', 'user/*',
 				'kbm', 'kbm/*',
+				'nilai', 'nilai/*',
+				'kehadiran', 'kehadiran/*',
 				'rapor', 'rapor/*',
+			]],
+			'fadmin' => ['except' => [
+				'dashboard',
+				'guru', 'guru/*',
+				'siswa', 'siswa/*',
+				'kelas', 'kelas/*',
+				'pelajaran', 'pelajaran/*',
+				'jadwal', 'jadwal/*',
 				'user', 'user/*',
 			]],
 			'toolbar',

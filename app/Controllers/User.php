@@ -25,12 +25,14 @@ class User extends BaseController
     public function add()
     {
         $data = array(
-            'nama_user' => $this->request->getPost('nama_user'),
-            'email' => $this->request->getPost('email'),
-            'username' => $this->request->getPost('username'),
-            'password' => $this->request->getPost('password'),
+            'nama_user' => $this->request->getVar('nama_user'),
+            'email' => $this->request->getVar('email'),
+            'username' => $this->request->getVar('username'),
+            'password' => $this->request->getVar('password'),
             'img' => 'default.png',
-            'level' => $this->request->getPost('level'),
+            'level' => $this->request->getVar('level'),
+            'createdby' => session()->get('nama'),
+            'createdon' => date('Y-m-d'),
             'active' => '1'
         );
         $this->Muser->tambah($data);
@@ -42,13 +44,15 @@ class User extends BaseController
     {
         $data = array(
             'id_user' => $id,
-            'nama_user' => $this->request->getPost('nama_user'),
-            'email' => $this->request->getPost('email'),
-            'username' => $this->request->getPost('username'),
-            'password' => $this->request->getPost('password'),
-            'img' => $this->request->getPost('img'),
-            'level' => $this->request->getPost('level'),
-            'active' => $this->request->getPost('active')
+            'nama_user' => $this->request->getVar('nama_user'),
+            'email' => $this->request->getVar('email'),
+            'username' => $this->request->getVar('username'),
+            'password' => $this->request->getVar('password'),
+            'img' => $this->request->getVar('img'),
+            'level' => $this->request->getVar('level'),
+            'updatedby' => session()->get('nama'),
+            'updatedon' => date('Y-m-d'),
+            'active' => '1'
         );
         $this->Muser->ubah($data);
         session()->setFlashdata('pesan', 'User berhasil diubah.');

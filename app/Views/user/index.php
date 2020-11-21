@@ -161,9 +161,6 @@
                         </div>
                         <div class="form-group col-lg-6">
                             <label>Level</label>
-                            <select name="level" id="level" class="form-control" aria-readonly="true">
-<option value=""></option>
-                            </select>
                             <input type="text" name="level" id="level" class="form-control" value="
                             <?php if ($value['level'] == 1) {
                                 echo 'Root';

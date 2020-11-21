@@ -69,11 +69,56 @@ class Auth extends BaseController
                     return redirect()->to(base_url('auth'));
                 }
             } elseif ($level == 2) {
-                echo 'Admin';
+                $cek_user = $this->Mauth->login_user($username, $password);
+                if ($cek_user) {
+                    // jika benar
+                    session()->set('log', true);
+                    session()->set('username', $cek_user['username']);
+                    session()->set('nama', $cek_user['nama_user']);
+                    session()->set('img', $cek_user['img']);
+                    session()->set('level', $level);
+
+                    return redirect()->to(base_url('dashboard'));
+                } else {
+                    // jika salah
+                    session()->setFlashdata('pesan', 'Login Gagal, Username atau Password salah !');
+
+                    return redirect()->to(base_url('auth'));
+                }
             } elseif ($level == 3) {
-                echo 'Guru';
+                $cek_user = $this->Mauth->login_user($username, $password);
+                if ($cek_user) {
+                    // jika benar
+                    session()->set('log', true);
+                    session()->set('username', $cek_user['username']);
+                    session()->set('nama', $cek_user['nama_user']);
+                    session()->set('img', $cek_user['img']);
+                    session()->set('level', $level);
+
+                    return redirect()->to(base_url('dashboard'));
+                } else {
+                    // jika salah
+                    session()->setFlashdata('pesan', 'Login Gagal, Username atau Password salah !');
+
+                    return redirect()->to(base_url('auth'));
+                }
             } elseif ($level == 5) {
-                echo 'Member';
+                $cek_user = $this->Mauth->login_user($username, $password);
+                if ($cek_user) {
+                    // jika benar
+                    session()->set('log', true);
+                    session()->set('username', $cek_user['username']);
+                    session()->set('nama', $cek_user['nama_user']);
+                    session()->set('img', $cek_user['img']);
+                    session()->set('level', $level);
+
+                    return redirect()->to(base_url('dashboard'));
+                } else {
+                    // jika salah
+                    session()->setFlashdata('pesan', 'Login Gagal, Username atau Password salah !');
+
+                    return redirect()->to(base_url('auth'));
+                }
             }
         } else {
             //Jika tdk valid

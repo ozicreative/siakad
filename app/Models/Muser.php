@@ -6,6 +6,10 @@ use CodeIgniter\Model;
 
 class Muser extends Model
 {
+    protected $table = 'user';
+    protected $useTimestamps = true;
+    protected $allowedFields = ['nama_user', 'username', 'password','email', 'img', 'level','createdby','updateby', 'active'];
+
     public function getData()
     {
         return $this->db->table('user')
