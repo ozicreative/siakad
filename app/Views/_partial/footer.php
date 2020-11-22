@@ -13,8 +13,6 @@
 </footer>
 </div>
 
-<!-- Sweet Alert2 -->
-<script src="<?php echo base_url('assets/template/plugins'); ?>/sweetalert2/sweetalert2.js"></script>
 <!-- jQuery -->
 <script src="<?php echo base_url('assets/template/plugins'); ?>/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->

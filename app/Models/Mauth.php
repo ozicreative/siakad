@@ -10,7 +10,11 @@ class Mauth extends Model
     public function login_user($username, $password)
     {
         return $this->db->table('user')
-            ->where(['username' => $username, 'password' => $password])
-            ->get()->getRowArray();
+            ->where([
+                'username' => $username,
+                'password' => $password,
+            ])
+            ->get()
+            ->getRowArray();
     }
 }

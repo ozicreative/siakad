@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-success elevation-4">
   <a href="<?php echo base_url('/'); ?>" class="brand-link navbar-success">
-    <img src="<?php echo base_url('assets'); ?>/img/logo.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <img src="<?php echo base_url('assets'); ?>/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-info"><b>SMK</b> Wahid Hasyim</span>
   </a>
 
@@ -10,22 +10,18 @@
         <img src="<?= base_url('assets/img/' . session()->get('img')) ?>" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block"><?= session()->get('nama') ?></a>
+        <a href="#" class="d-block"><?= session()->get('nama_user') ?></a>
       </div>
     </div>
     <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-      <?php if (session()->get('level') == 1) { ?>
-
-        <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
             <a href="<?php echo base_url('/'); ?>" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>Dashboard</p>
             </a>
           </li>
-
-          <?php if (session()->get('level') == 2) { ?>
 
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
@@ -92,10 +88,6 @@
               </ul>
             </li>
 
-          <?php } ?>
-
-          <?php if (session()->get('level') == 3) { ?>
-
             <li class="nav-item">
               <a href="<?php echo base_url('kehadiran'); ?>" class="nav-link">
                 <i class="nav-icon far fa-calendar-check"></i>
@@ -121,18 +113,14 @@
               </a>
             </li>
 
-          <?php } ?>
-
           <li class="nav-item">
             <a href="<?= base_url('auth/logout') ?>" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt text-danger"></i>
               <p class="text">Logout</p>
             </a>
           </li>
-        </ul>
 
-      <?php } ?>
-
+      </ul>
     </nav>
   </div>
 </aside>

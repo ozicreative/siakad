@@ -124,6 +124,18 @@
         <h2 class="text-center"><b>Form Login</b></h2>
 
         <?php
+        $errors = session()->getFlashdata('errors');
+        if (!empty($errors)) { ?>
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                    <?php foreach ($errors as $key => $value) { ?>
+                        <li><?= esc($value) ?></li>
+                    <?php } ?>
+                </ul>
+            </div>
+        <?php } ?>
+
+        <?php
         if (session()->getFlashdata('pesan')) {
             echo '<div class="alert alert-danger" role="alert">';
             echo session()->getFlashdata('pesan');
@@ -159,6 +171,7 @@
     <script src="<?= base_url('assets/template/plugins/'); ?>/jquery/jquery.min.js"></script>
     <script src="<?= base_url('assets/template/plugins/'); ?>/popper/umd/popper.min.js"></script>
     <script src="<?= base_url('assets/template/plugins/'); ?>/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?= base_url('assets/template/plugins/'); ?>/sweetalert2/sweetalert2.min.js"></script>
     <!-- .End Script -->
     <script>
         window.setTimeout(function() {
