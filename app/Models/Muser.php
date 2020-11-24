@@ -8,7 +8,7 @@ class Muser extends Model
 {
     protected $table = 'user';
     protected $useTimestamps = true;
-    protected $allowedFields = ['nama_user', 'username', 'password','email', 'img', 'level','createdby','updateby', 'active'];
+    protected $allowedFields = ['nama_user', 'username', 'password', 'email', 'img', 'level', 'createdby', 'updateby', 'active'];
 
     public function getData()
     {
@@ -16,6 +16,14 @@ class Muser extends Model
             ->orderBy('nama_user', 'ASC')
             ->get()
             ->getResultArray();
+    }
+
+    public function detail($id)
+    {
+        return $this->db->table('user')
+        ->where('id_user', $id)
+        ->get()
+        ->getRowArray();
     }
 
     public function tambah($data)

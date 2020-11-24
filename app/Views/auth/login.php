@@ -138,11 +138,11 @@
 
         <div class="form-group">
             <label for="">Username</label>
-            <input type="text" class="form-control" name="username" id="username" autofocus>
+            <input type="text" class="form-control" name="username" id="username" autofocus required>
         </div>
         <div class="form-group">
             <label for="">Password</label>
-            <input type="password" class="form-control" name="password" id="password">
+            <input type="password" class="form-control" name="password" id="password" required>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-lg btn-block">Enter</button>
