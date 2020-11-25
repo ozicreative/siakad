@@ -9,9 +9,9 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title"><?= $komik['judul']; ?></h5>
-                                <p class="card-text"><b>Penulis :</b><?= $komik['penulis']; ?></p>
-                                <p class="card-text"><small class="text-muted"><b>Penerbit :</b><?= $komik['penerbit']; ?></small></p>
+                                <h5 class="card-title"><?= $title; ?></h5>
+                                <p class="card-text"><b>Nama : </b><?= $user['nama_user']; ?></p>
+                                <p class="card-text"><small class="text-muted"><b>Username :</b><?= $user['username']; ?></small></p>
 
                                 <a href="/komik/edit/<?= $komik['slug']; ?>" class="btn btn-warning">Edit</a>
 

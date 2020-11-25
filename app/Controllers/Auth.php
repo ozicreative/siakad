@@ -54,6 +54,100 @@ class Auth extends BaseController
         }
     }
 
+    public function profile($iduser)
+    {
+        $data = array(
+            'title' => 'Profile',
+            'validation' => \Config\Services::validation(),
+            'user' => $this->Mauth->getUser($iduser),
+            'konten' => 'user/vprofile'
+        );
+        return view('_partial/wrapper', $data);
+    }
+
+    public function updateProfile($id)
+    {
+        $pLama = $this->Mauth->getUser($this->request->getVar('id_user'));
+        if ($pLama['username'] == $this->request->getVar('username')) {
+            $roleUsername = 'required';
+        } else {
+            $roleUsername = 'required|is_unique[user.username]';
+        }
+        
+        if (!$this->validate([
+            'nama_user' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong'
+                ]
+                ],
+            'username' => [
+                'rules' => $roleUsername,
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong',
+                    'is_unique' => '{field} sudah ada, gunakan username lain.'
+                ]
+                ],
+            'password' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong'
+                ]
+                ],
+            'email' => [
+                'rules' => 'is_unique[user.email]',
+                'errors' => [
+                    'is_unique' => '{field} sudah terdaftar, gunakan email yang belum pernah didaftarkan sebelumnya.'
+                ]
+                ],
+            'img' => [
+                'rules' => 'max_size[img,1024]|is_image[img]|mime_in[img,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'Ukuran gambar terlalu besar, max 1mb.',
+                    'is_image' => 'Yang anda upload bukan file gambar.',
+                    'mime_in' => 'Format gambar harus jpg/jpeg/png.'
+                ]
+                ]
+        ])) {
+            return redirect()->back()->withInput();
+        }
+        $fileImg = $this->request->getFile('img');
+        if ($fileImg->getError() == 4) {
+            $namaImg = $this->request->getVar('gambarLama');
+        } else {
+            $namaImg = $fileImg->getRandomName();
+            $fileImg->move('assets/img', $namaImg);
+            unlink('assets/img/' . $this->request->getVar('gambarLama'));
+        }
+        $this->Mauth->save([
+            'id_user' => $id,
+            'nama_user' => $this->request->getVar('nama_user'),
+            'username' => $this->request->getVar('username'),
+            'password' => $this->request->getVar('password'),
+            'email' => $this->request->getVar('email'),
+            'img' => $namaImg
+        ]);
+        session()->setFlashdata('pesan', 'Profile berhasil diubah.');
+        return redirect()->to('auth/profile');
+
+        // $iduser = session()->get('id_user');
+        // $data = array(
+        //     'nama_user' => $this->request->getPost('nama_user'),
+        //     'email' => $this->request->getPost('email'),
+        //     'username' => $this->request->getPost('username'),
+        //     'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+        //     'img' => 'default.png',
+        //     'updatedby' => session()->get('nama_user')
+        // )
+
+        // $data = [
+        //     'title' => 'Profile',
+        //     'user' => $this->Muser->detail($id),
+        //     'konten' => 'user/vprofile'
+        // ];
+        // return view('_partial/wrapper', $data);
+    }
+
     public function logout()
     {
         session()->destroy();
