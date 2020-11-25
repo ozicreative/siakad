@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\Muser;
-use DateTime;
 
 class User extends BaseController
 {
@@ -33,7 +32,6 @@ class User extends BaseController
             'img' => 'default.png',
             'level' => $this->request->getVar('level'),
             'createdby' => session()->get('nama_user'),
-            'createdon' => date('Y-m-d h:i:sa'),
             'active' => '1'
         );
         $this->Muser->tambah($data);
@@ -52,7 +50,6 @@ class User extends BaseController
             'img' => $this->request->getVar('img'),
             'level' => $this->request->getVar('level'),
             'updatedby' => session()->get('nama_user'),
-            'updatedon' => date('Y-m-d h:i:sa'),
             'active' => '1'
         );
         $this->Muser->ubah($data);

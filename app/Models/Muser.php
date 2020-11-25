@@ -8,7 +8,7 @@ class Muser extends Model
 {
     protected $table = 'user';
     protected $useTimestamps = true;
-    protected $allowedFields = ['nama_user', 'username', 'password', 'email', 'img', 'level', 'createdby', 'updateby', 'active'];
+    protected $allowedFields = ['nama_user', 'username', 'password', 'email', 'img', 'level', 'createdby','updatedby', 'active'];
 
     public function getData()
     {
