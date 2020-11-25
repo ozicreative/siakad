@@ -9,7 +9,6 @@ class Muser extends Model
     protected $table = 'user';
     protected $useTimestamps = true;
     protected $allowedFields = ['nama_user', 'username', 'password', 'email', 'img', 'level', 'createdby','updatedby', 'active'];
-    protected $returnType = 'App\Entities\User';
 
     public function getData()
     {
