@@ -6,15 +6,8 @@ use CodeIgniter\Model;
 
 class Mauth extends Model
 {
-
-    public function login_user($username, $password)
-    {
-        return $this->db->table('user')
-            ->where([
-                'username' => $username,
-                'password' => $password,
-            ])
-            ->get()
-            ->getRowArray();
-    }
+    protected $table = 'user';
+    protected $primaryKey = 'id_user';
+    //protected $useTimestamps = true;
+    //protected $allowedFields = ['nama_user', 'username', 'password', 'email', 'img', 'level', 'createdby','updatedby', 'active'];
 }

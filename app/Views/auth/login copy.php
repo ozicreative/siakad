@@ -123,21 +123,21 @@
         </div>
         <h2 class="text-center"><b>Form Login</b></h2>
 
-        <?php if (session()->has('error')) : ?>
-            <div class="alert alert-danger alert-center" role="alert"><?= session()->getFlashdata('error') ?>
-            </div>
-        <?php endif; ?>
-
-        <?php $validation = session()->getFlashdata('validation'); ?>
+        <?php
+        if (session()->getFlashdata('pesan')) {
+            echo '<div class="alert alert-danger" role="alert">';
+            echo session()->getFlashdata('pesan');
+            echo '</div>';
+        }
+        if (session()->getFlashdata('sukses')) {
+            echo '<div class="alert alert-success" role="alert">';
+            echo session()->getFlashdata('sukses');
+            echo '</div>';
+        } ?>
 
         <div class="form-group">
             <label for="">Username</label>
-            <input type="text" class="form-control <?= $validation && $validation->hasError('username') ? 'is-invalid' : '' ?>" name="username" id="username" autofocus>
-            <?php if ($validation && $validation->hasError('username')) : ?>
-                <div class="invalid-feedback">
-                    <?= $validation->getError('username'); ?>
-                </div>
-            <?php endif; ?>
+            <input type="text" class="form-control" name="username" id="username" autofocus>
         </div>
         <div class="form-group">
             <label for="">Password</label>
