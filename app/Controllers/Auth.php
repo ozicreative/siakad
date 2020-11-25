@@ -21,37 +21,42 @@ class Auth extends BaseController
         return view('auth/login', $data);
     }
 
-    public function cek_login()
+    public function login()
     {
-        $username = $this->request->getPost('username');
-        $password = $this->request->getPost('password');
-        $cek_user = $this->Mauth->login_user($username, $password);
-
-        if ($cek_user) {
-            //jika valid
-            session()->set('log', true);
-            session()->set('username', $cek_user['username']);
-            session()->set('level', $cek_user['level']);
-            session()->set('nama_user', $cek_user['nama_user']);
-            session()->set('email', $cek_user['email']);
-            session()->set('img', $cek_user['img']);
-            return redirect()->to(base_url('dashboard'));
-        } else {
-            session()->setFlashdata('pesan', 'Login Gagal, Username atau Password salah !');
-            return redirect()->to(base_url('auth'));
-        }
+        
     }
 
-    public function logout()
-    {
-        session()->remove('log');
-        session()->remove('username');
-        session()->remove('nama_user');
-        session()->remove('Email');
-        session()->remove('img');
-        session()->remove('level');
+    // public function cek_login()
+    // {
+    //     $username = $this->request->getPost('username');
+    //     $password = $this->request->getPost('password');
+    //     $cek_user = $this->Mauth->login_user($username, $password);
 
-        session()->setFlashdata('sukses', 'Logout berhasil');
-        return redirect()->to(base_url('auth'));
-    }
+    //     if ($cek_user) {
+    //         //jika valid
+    //         session()->set('log', true);
+    //         session()->set('username', $cek_user['username']);
+    //         session()->set('level', $cek_user['level']);
+    //         session()->set('nama_user', $cek_user['nama_user']);
+    //         session()->set('email', $cek_user['email']);
+    //         session()->set('img', $cek_user['img']);
+    //         return redirect()->to(base_url('dashboard'));
+    //     } else {
+    //         session()->setFlashdata('pesan', 'Login Gagal, Username atau Password salah !');
+    //         return redirect()->to(base_url('auth'));
+    //     }
+    // }
+
+    // public function logout()
+    // {
+    //     session()->remove('log');
+    //     session()->remove('username');
+    //     session()->remove('nama_user');
+    //     session()->remove('Email');
+    //     session()->remove('img');
+    //     session()->remove('level');
+
+    //     session()->setFlashdata('sukses', 'Logout berhasil');
+    //     return redirect()->to(base_url('auth'));
+    // }
 }
