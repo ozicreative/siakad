@@ -24,19 +24,21 @@ class User extends BaseController
 
     public function add()
     {
-        $data = array(
-            'nama_user' => $this->request->getVar('nama_user'),
-            'email' => $this->request->getVar('email'),
-            'username' => $this->request->getVar('username'),
-            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-            'img' => 'default.png',
-            'level' => $this->request->getVar('level'),
-            'createdby' => session()->get('nama_user'),
-            'active' => '1'
-        );
-        $this->Muser->tambah($data);
-        session()->setFlashdata('pesan', 'User baru berhasil ditambahkan.');
-        return redirect()->to(base_url('user'));
+        
+
+        // $data = array(
+        //     'nama_user' => $this->request->getVar('nama_user'),
+        //     'email' => $this->request->getVar('email'),
+        //     'username' => $this->request->getVar('username'),
+        //     'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+        //     'img' => 'default.png',
+        //     'level' => $this->request->getVar('level'),
+        //     'createdby' => session()->get('nama_user'),
+        //     'active' => '1'
+        // );
+        // $this->Muser->tambah($data);
+        // session()->setFlashdata('pesan', 'User baru berhasil ditambahkan.');
+        // return redirect()->to(base_url('user'));
     }
 
     public function edit($id)
