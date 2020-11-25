@@ -44,6 +44,7 @@ $routes->get('pelajaran/', 'Pelajaran::index');
 $routes->get('jadwal/', 'Jadwal::index');
 $routes->get('kehadiran/', 'Kehadiran::index');
 $routes->get('kbm/', 'Kbm::index');
+$routes->get('user/vprofile/', 'User::profile');
 /**
  * --------------------------------------------------------------------
  * Additional Routing

@@ -22,6 +22,16 @@ class User extends BaseController
         return view('_partial/wrapper', $data);
     }
 
+    public function profile($id)
+    {
+        $data = [
+            'title' => 'Profile',
+            'user' => $this->Muser->detail($id),
+            'konten' => 'user/vprofile'
+        ];
+        return view('_partial/wrapper', $data);
+    }
+
     public function add()
     {
         $data = array(
