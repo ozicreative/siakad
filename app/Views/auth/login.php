@@ -131,7 +131,7 @@
         <?php $validation = session()->getFlashdata('validation'); ?>
 
         <div class="form-group">
-            <label for="">Username</label>
+            <label for="">Username or Email</label>
             <input type="text" class="form-control <?= $validation && $validation->hasError('username') ? 'is-invalid' : '' ?>" name="username" id="username" autofocus>
             <?php if ($validation && $validation->hasError('username')) : ?>
                 <div class="invalid-feedback">

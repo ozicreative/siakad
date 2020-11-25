@@ -6,7 +6,6 @@ use App\Models\Mauth;
 
 class Auth extends BaseController
 {
-
     public function __construct()
     {
         helper('form');
@@ -28,12 +27,10 @@ class Auth extends BaseController
                 'username' => 'required',
                 'password' => 'required'
             ];
-
             $validate = $this->validate($rules);
             if ($validate) {
                 $username = $this->request->getPost('username');
                 $password = $this->request->getPost('password');
-
                 $model = new Mauth();
                 $user = $model->asObject()->where('username', $username)->orwhere('email', $username)->first();
                 if ($user) {
@@ -46,7 +43,6 @@ class Auth extends BaseController
                             'level' => $user->level,
                             'logged_in' => true
                         ]);
-
                         return redirect('dashboard');
                     }
                 }
@@ -54,7 +50,6 @@ class Auth extends BaseController
             } else {
                 return redirect()->back()->withInput()->with('validation', $this->validator);
             }
-
             return redirect()->to(base_url('auth'));
         }
     }
