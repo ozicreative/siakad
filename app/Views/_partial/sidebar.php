@@ -9,7 +9,7 @@
         <img src="<?= base_url('assets/img/' . session()->get('img')) ?>" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="user/profile/" class="d-block"><?= session()->get('nama_user') ?></a>
+        <a href="<?php echo base_url('profile'); ?>" class="d-block"><?= session()->get('nama_user') ?></a>
       </div>
     </div>
     <nav class="mt-2">

@@ -41,6 +41,7 @@ class Filters extends BaseConfig
 				'nilai', 'nilai/*',
 				'kehadiran', 'kehadiran/*',
 				'rapor', 'rapor/*',
+				'profile', 'profile/*',
 			]],
 			'fadmin' => ['except' => [
 				'dashboard',
