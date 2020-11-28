@@ -41,6 +41,7 @@ class Auth extends BaseController
                             'email' => $user->email,
                             'img' => $user->img,
                             'level' => $user->level,
+                            'created_at' => $user->created_at,
                             'logged_in' => true
                         ]);
                         return redirect('dashboard');
