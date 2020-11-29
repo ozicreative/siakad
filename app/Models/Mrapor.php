@@ -37,7 +37,8 @@ class Mrapor extends Model
                                 AND g.jenis = 'KETRAMPILAN'
                                 WHERE a.siswa_id = '$id' AND a.active = '1'
                                 GROUP BY e.`nama_siswa`, c.lvl_kelas, c.`nama_kelas`, d.`nama_pelajaran`");
-        return $query;
+        //return $query;
+        return $query->getResultArray();
     }
 
     public function getDataKehadiran($id)
