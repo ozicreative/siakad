@@ -1,16 +1,34 @@
-<?php namespace App\Controllers;
+<?php
+
+namespace App\Controllers;
+use App\Models\Mdashboard;
 
 class Dashboard extends BaseController
 {
+	public function __construct()
+    {
+        $this->Mdashboard = new Mdashboard();
+        helper('form');
+    }
+
 	public function index()
 	{
-        $data = array(
-            'title' => 'Dashboard',
-            'konten' => 'dashboard'
-        );
+		$datahadir = $this->Mdashboard->gethadir();
+
+		$data["title"] = "Dashboard";
+		$data["siswa"] = $datahadir[0]["siswa"];
+		$data["alpha"] = $datahadir[0]["alpha"];
+		$data["sakit"] = $datahadir[0]["sakit"];
+		$data["top"] = $this->Mdashboard->gettop();
+		$data["avgkelas"] = $this->Mdashboard->avgkelas();
+		$data["konten"] = "dashboard";
+
 		return view('_partial/wrapper', $data);
+
+		// $data = array(
+		// 	'title' => 'Dashboard',
+		// 	'konten' => 'dashboard'
+		// );
+		// return view('_partial/wrapper', $data);
 	}
-
-	//--------------------------------------------------------------------
-
 }

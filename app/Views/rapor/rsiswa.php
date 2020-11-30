@@ -109,12 +109,6 @@
             </tr>
             <?php $no++; ?>
         <?php endforeach ?>
-        <!-- <tr>
-                <td>1</td>
-                <td>08-08-2019</td>
-                <td>Penjelasan A</td>
-                <td>20 / 2</td>
-            </tr> -->
     </table>
     <br>
     <br>
