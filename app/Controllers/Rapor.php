@@ -23,14 +23,14 @@ class Rapor extends BaseController
 
     public function view($id)
     {
-        $ret = $this->Mrapor->getDataNilai($id);
-        $retkh = $this->Mrapor->getDataKehadiran($id);
+        $nilai = $this->Mrapor->getDataNilai($id);
+        $absen = $this->Mrapor->getDataKehadiran($id);
 
-        $data["kelas"] = $ret[0]['kelas'];
-        $data["nama"] = $ret[0]['nama'];
-        $data["periode"] = $ret[0]['periode'];
-        $data["rapor"] = $ret;
-        $data["absensi"] = $retkh;
+        $data["kelas"] = $nilai[0]['kelas'];
+        $data["nama"] = $nilai[0]['nama'];
+        $data["periode"] = $nilai[0]['periode'];
+        $data["rapor"] = $nilai;
+        $data["absensi"] = $absen;
 
         return view('rapor/rsiswa', $data);
 
