@@ -26,21 +26,29 @@ class Rapor extends BaseController
         $ret = $this->Mrapor->getDataNilai($id);
         $retkh = $this->Mrapor->getDataKehadiran($id);
 
-        if ($ret->num_rows() > 0) {
-            $ret = $ret->result_array();
-            $data["kelas"] = $ret[0]["kelas"];
-            $data["nama"] = $ret[0]["nama"];
-            $data["periode"] = $ret[0]["periode"];
+        $data["kelas"] = $ret[0]['kelas'];
+        $data["nama"] = $ret[0]['nama'];
+        $data["periode"] = $ret[0]['periode'];
+        $data["rapor"] = $ret;
+        $data["absensi"] = $retkh;
 
-            $data["rapor"] = $ret;
+        return view('rapor/rsiswa', $data);
 
-            if ($retkh->num_rows() > 0) {
-                $retkh = $retkh->result_array();
-                $data["absensi"] = $retkh;
-            }
-            return view('rapor/rsiswa', $data);
-        } else {
-            redirect()->back();
-        }
+        // if ($ret->num_rows() > 0) {
+        //     $ret = $ret->result_array();
+        //     $data["kelas"] = $ret[0]["kelas"];
+        //     $data["nama"] = $ret[0]["nama"];
+        //     $data["periode"] = $ret[0]["periode"];
+
+        //     $data["rapor"] = $ret;
+
+        //     if ($retkh->num_rows() > 0) {
+        //         $retkh = $retkh->result_array();
+        //         $data["absensi"] = $retkh;
+        //     }
+        //     return view('rapor/rsiswa', $data);
+        // } else {
+        //     redirect()->back();
+        // }
     }
 }

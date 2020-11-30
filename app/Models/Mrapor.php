@@ -50,6 +50,6 @@ class Mrapor extends Model
                                 AND `status` <> 'MASUK'
                                 GROUP BY `status`");
 
-        return $query;
+        return $query->getResultArray();
     }
 }
