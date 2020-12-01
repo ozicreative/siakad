@@ -11,9 +11,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo base_url('assets/template/plugins'); ?>/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="<?php echo base_url('assets/template'); ?>/css/ionicons.min.css">
+    <!-- <link rel="stylesheet" href="<?php echo base_url('assets/template'); ?>/css/ionicons.min.css"> -->
     <!-- Chart.js -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/template/plugins'); ?>/chatjs/dist/Chart.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/template/plugins'); ?>/chartjs/dist/Chart.min.css">
     <!-- DataTables -->
     <link rel="stylesheet" href="<?php echo base_url('assets/template/plugins'); ?>/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="<?php echo base_url('assets/template/plugins'); ?>/datatables-responsive/css/responsive.bootstrap4.min.css">

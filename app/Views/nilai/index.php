@@ -87,7 +87,7 @@
                             <option>-pilih-</option>
                             <option value="UTS">UTS</option>
                             <option value="UAS">UAS</option>
-                            <option value="Praktek">Praktek</option>
+                            <option value="PRAKTEK">PRAKTEK</option>
                         </select>
                     </div>
                 </div>

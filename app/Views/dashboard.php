@@ -51,7 +51,7 @@
   <div class="col-lg">
     <div class="card card-info card-outline">
       <div class="card-body">
-      <canvas id="myChart" width="400" height="400"></canvas>
+      <canvas id="myChart" height="84"></canvas>
       </div>
     </div>
   </div>

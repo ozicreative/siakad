@@ -37,14 +37,14 @@ $routes->get('/', 'Dashboard::index');
 // $routes->get('auth/logout', 'Auth::logout');
 
 $routes->get('dashboard', 'Dashboard::index');
-// $routes->get('guru/', 'Guru::index');
-// $routes->get('siswa/', 'Siswa::index');
-// $routes->get('kelas/', 'Kelas::index');
-// $routes->get('pelajaran/', 'Pelajaran::index');
-// $routes->get('jadwal/', 'Jadwal::index');
-// $routes->get('kehadiran/', 'Kehadiran::index');
-// $routes->get('kbm/', 'Kbm::index');
-// $routes->get('profile/', 'Profile::index');
+$routes->get('guru/', 'Guru::index');
+$routes->get('siswa/', 'Siswa::index');
+$routes->get('kelas/', 'Kelas::index');
+$routes->get('pelajaran/', 'Pelajaran::index');
+$routes->get('jadwal/', 'Jadwal::index');
+$routes->get('kehadiran/', 'Kehadiran::index');
+$routes->get('kbm/', 'Kbm::index');
+$routes->get('profile/', 'Profile::index');
 /**
  * --------------------------------------------------------------------
  * Additional Routing
