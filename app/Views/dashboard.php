@@ -47,13 +47,13 @@
   <!-- ./col -->
 </div>
 <!-- /.row -->
-<!-- <div class="row">
+<div class="row">
   <div class="col-lg">
     <div class="card card-info card-outline">
       <div class="card-body">
-        <h2>Konten</h2>
+      <canvas id="myChart" width="400" height="400"></canvas>
       </div>
     </div>
   </div>
-</div> -->
+</div>
 
