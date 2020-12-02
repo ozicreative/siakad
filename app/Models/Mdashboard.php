@@ -60,14 +60,14 @@ class Mdashboard extends Model
 
 	public function getGrafik()
 	{
-		$query = $this->db->query("SELECT CONCAT(b.`nama_siswa`, '(',d.`nama_kelas`,')') `nama`, AVG(a.total_nilai) `value`
+		$query = $this->db->query("SELECT b.nama_siswa `nama`, AVG(a.total_nilai) `value`
 				FROM nilai a
 				JOIN siswa b ON a.siswa_id = b.id_siswa
 				JOIN kelas_siswa c ON a.siswa_id = c.siswa_id
 				JOIN kelas d ON c.kelas_id = d.id_kelas
 				GROUP BY a.siswa_id
 				ORDER BY AVG(a.total_nilai) DESC
-				LIMIT 5");
+				LIMIT 6");
 
 		$hasil = [];
 		if (!empty($query)) {
@@ -78,9 +78,15 @@ class Mdashboard extends Model
 		return $hasil;
 	}
 
-	// public function getTop()
+	// public function getLatest()
 	// {
 	// 	return $this->table('nilai')
-	// 			->select('')
+	// 	->join('siswa', 'siswa.id_siswa = nilai.siswa_id')
+	// 	->join('kelas', 'kelas.id_kelas = nilai.kelas_id')
+	// 	->join('kelas_siswa', 'kelas_siswa.siswa_id = nilai.siswa_id')
+	// 	->orderBy('nilai.total_nilai', 'desc')
+	// 	->limit(5)
+	// 	->get()
+	// 	->getResultArray();
 	// }
 }
