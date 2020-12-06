@@ -2,47 +2,42 @@
     <div class="row my-2">
         <div class="col-lg-8 order-lg-2">
             <ul class="nav nav-tabs">
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Messages</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
                 </li> -->
             </ul>
             <div class="tab-content py-4">
                 <div class="tab-pane active" id="profile">
-                    <h5 class="mb-3">User Profile</h5>
+                    <h5 class="mb-3"><b>User Profile</b></h5>
                     <div class="row">
                         <div class="col-md-6">
-                            <h6>About</h6>
+                            <h6><b>Nama</b></h6>
                             <p>
-                                Web Designer, UI/UX Engineer
+                                <?= session()->get('nama_user') ?>
                             </p>
-                            <h6>Hobbies</h6>
+                            <h6><b>Email</b></h6>
                             <p>
-                                Indie music, skiing and hiking. I love the great outdoors.
+                                <?= session()->get('email') ?>
                             </p>
                         </div>
                         <div class="col-md-6">
-                            <h6>Recent badges</h6>
-                            <a href="#" class="badge badge-dark badge-pill">html5</a>
-                            <a href="#" class="badge badge-dark badge-pill">react</a>
-                            <a href="#" class="badge badge-dark badge-pill">codeply</a>
-                            <a href="#" class="badge badge-dark badge-pill">angularjs</a>
-                            <a href="#" class="badge badge-dark badge-pill">css3</a>
-                            <a href="#" class="badge badge-dark badge-pill">jquery</a>
-                            <a href="#" class="badge badge-dark badge-pill">bootstrap</a>
-                            <a href="#" class="badge badge-dark badge-pill">responsive-design</a>
-                            <hr>
-                            <span class="badge badge-primary"><i class="fa fa-user"></i> 900 Followers</span>
-                            <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
-                            <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
+                            <h6><b>Username</b></h6>
+                            <p>
+                                <?= session()->get('username') ?>
+                            </p>
+                            <h6><b>User level</b></h6>
+                            <p>
+                                <?= session()->get('level') ?>
+                            </p>
                         </div>
                         <div class="col-md-12">
-                            <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
+                            <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Pengaturan</h5>
                             <table class="table table-sm table-hover table-striped">
                                 <tbody>
                                     <tr>
@@ -202,12 +197,12 @@
             </div>
         </div>
         <div class="col-lg-4 order-lg-1 text-center">
-            <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
-            <h6 class="mt-2">Upload a different photo</h6>
+            <img src="<?= base_url('assets/img/' . session()->get('img')) ?>" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+            <!-- <h6 class="mt-2">Upload a different photo</h6>
             <label class="custom-file">
                 <input type="file" id="file" class="custom-file-input">
                 <span class="custom-file-control">Choose file</span>
-            </label>
+            </label> -->
         </div>
     </div>
 </div>
